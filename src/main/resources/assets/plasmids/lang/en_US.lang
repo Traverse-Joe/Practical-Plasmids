@@ -3,9 +3,10 @@
 #Items
 item.plasmids.syringe.name=Empty Syringe
 item.plasmids.wrench.name=Pipe Wrench
-item.plasmids.creative_eveHypo.name=Creative Eve Hypo
-item.plasmids.eve_Reader.name=Eve Reader
-item.plasmids.eve_Hypo.name=Eve Hypo
+item.plasmids.creative_eveHypo.name=Creative EVE Hypo
+item.plasmids.eve_Reader.name=EVE Reader
+item.plasmids.eve_Hypo.name=EVE Hypo
+item.plasmids.pep_bar.name=Pep Bar
 
 
 

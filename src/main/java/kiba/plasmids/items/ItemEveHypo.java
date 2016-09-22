@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 public class ItemEveHypo extends BaseItem {
     public ItemEveHypo() {
         super("eve_Hypo");
-        this.setMaxStackSize(8);
+        this.setMaxStackSize(16);
 
 
     }

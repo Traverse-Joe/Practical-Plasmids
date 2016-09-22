@@ -1,5 +1,6 @@
 package kiba.plasmids.registry;
 
+import kiba.plasmids.foods.FoodPepBar;
 import kiba.plasmids.items.*;
 import kiba.plasmids.plasmids.PlasmidCycloneTrap;
 import kiba.plasmids.plasmids.PlasmidIncinerate;
@@ -14,9 +15,10 @@ public class ModItems {
     public static ItemEveReader itemEveReader;
     public static PlasmidCycloneTrap plasmidCycloneTrap;
     public static ItemEveHypo itemEveHypo;
+    public static FoodPepBar foodPepBar;
 
     public static void init() {
-//Items
+        //Items
         itemSyringe = new ItemSyringe();
         itemWrench = new ItemWrench();
         creativeItemEve = new CreativeItemEve();
@@ -25,6 +27,8 @@ public class ModItems {
         //Plasmids
         plasmidIncinerate = new PlasmidIncinerate();
         plasmidCycloneTrap = new PlasmidCycloneTrap();
+        //Food
+        foodPepBar =  new FoodPepBar();
 
 
     }
@@ -38,5 +42,6 @@ public class ModItems {
         itemEveReader.initModel();
         plasmidCycloneTrap.initModel();
         itemEveHypo.initModel();
+        foodPepBar.initModel();
     }
 }
