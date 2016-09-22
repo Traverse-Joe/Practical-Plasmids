@@ -1,7 +1,12 @@
 package kiba.plasmids;
 
+import kiba.plasmids.energy.IEveConsumer;
+import kiba.plasmids.energy.IEveHolder;
+import kiba.plasmids.energy.IEveProducer;
+import kiba.plasmids.energy.implementation.EveContainer;
 import kiba.plasmids.proxy.CommonProxy;
 import kiba.plasmids.registry.ModItems;
+import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -23,6 +28,12 @@ public class PracticalPlasmids
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event){
+
+        CapabilityManager.INSTANCE.register(IEveConsumer.class, new PlasmidsCapabilities.CapabilityEveConsumer<>(), EveContainer.class);
+        CapabilityManager.INSTANCE.register(IEveProducer.class, new PlasmidsCapabilities.CapabilityEveProducer<>(), EveContainer.class);
+        CapabilityManager.INSTANCE.register(IEveHolder.class, new PlasmidsCapabilities.CapabilityEveHolder<>(), EveContainer.class);
+
+
         ModItems.init();
         proxy.registerRenderers(this);
         proxy.preInit(event);
