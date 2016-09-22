@@ -5,9 +5,10 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
+import net.minecraftforge.common.capabilities.ICapabilitySerializable;
 import net.minecraftforge.common.util.INBTSerializable;
 
-public class EveContainerProvider implements INBTSerializable<NBTTagCompound>, ICapabilityProvider {
+public class EveContainerProvider implements ICapabilitySerializable<NBTTagCompound> {
 
     private final EveContainer container;
 
@@ -19,14 +20,14 @@ public class EveContainerProvider implements INBTSerializable<NBTTagCompound>, I
     @Override
     public boolean hasCapability(Capability<?> capability, EnumFacing facing) {
 
-        return capability == PlasmidsCapabilities.EVE_CONSUMER || capability == PlasmidsCapabilities.EVE_PRODUCER || capability == PlasmidsCapabilities.EVE_HOLDER;
+        return capability == PlasmidsCapabilities.EVE_HOLDER;
     }
 
     @Override
     @SuppressWarnings("unchecked")
     public <T> T getCapability(Capability<T> capability, EnumFacing facing) {
 
-        if (capability == PlasmidsCapabilities.EVE_CONSUMER || capability == PlasmidsCapabilities.EVE_PRODUCER || capability == PlasmidsCapabilities.EVE_HOLDER)
+        if (capability == PlasmidsCapabilities.EVE_HOLDER)
             return (T) this.container;
 
         return null;

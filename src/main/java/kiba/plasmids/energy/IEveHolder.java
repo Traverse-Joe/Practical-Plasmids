@@ -10,5 +10,9 @@ public interface IEveHolder {
 
     void deserializeNBT(NBTTagCompound nbt);
 
+    long givePower(long power, boolean simulated);
+
+    long takePower(long power, boolean simulated);
+
     NBTTagCompound serializeNBT();
 }

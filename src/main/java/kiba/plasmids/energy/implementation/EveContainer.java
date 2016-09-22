@@ -1,12 +1,9 @@
 package kiba.plasmids.energy.implementation;
 
-import kiba.plasmids.energy.IEveConsumer;
 import kiba.plasmids.energy.IEveHolder;
-import kiba.plasmids.energy.IEveProducer;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraftforge.common.util.INBTSerializable;
 
-public class EveContainer implements IEveConsumer, IEveHolder, IEveProducer, INBTSerializable<NBTTagCompound> {
+public class EveContainer implements IEveHolder {
 
     private long stored;
 
