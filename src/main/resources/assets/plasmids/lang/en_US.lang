@@ -1,5 +1,5 @@
-#en_US.lang File
+#eng_US.lang File
 
-#Items
-item.syringe.name=Empty Syringe
-item.wrench.name=Pipe Wrench
+#Item
+item.plasmids.syringe.name=Empty Syringe
+item.plasmids.wrench.name=Pipe Wrench
