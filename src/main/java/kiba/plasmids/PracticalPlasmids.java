@@ -58,7 +58,7 @@ public class PracticalPlasmids
 
     @SubscribeEvent
     public void clone(PlayerEvent.Clone event) {
-        if (!event.isWasDeath()) {
+        if (event.isWasDeath()) {
             EntityPlayer dead = event.getOriginal();
             EntityPlayer alive = event.getEntityPlayer();
             if (dead.hasCapability(PlasmidsCapabilities.EVE_HOLDER, null) && alive.hasCapability(PlasmidsCapabilities.EVE_HOLDER, null))
