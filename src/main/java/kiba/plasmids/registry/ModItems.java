@@ -1,7 +1,7 @@
 package kiba.plasmids.registry;
 
-import kiba.plasmids.items.ItemSyringe;
-import kiba.plasmids.items.ItemWrench;
+import kiba.plasmids.items.*;
+import kiba.plasmids.plasmids.PlasmidCycloneTrap;
 import kiba.plasmids.plasmids.PlasmidIncinerate;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -10,13 +10,22 @@ public class ModItems {
     public static ItemSyringe itemSyringe;
     public static ItemWrench itemWrench;
     public static PlasmidIncinerate plasmidIncinerate;
-
+    public static CreativeItemEve creativeItemEve;
+    public static ItemEveReader itemEveReader;
+    public static PlasmidCycloneTrap plasmidCycloneTrap;
+    public static ItemEveHypo itemEveHypo;
 
     public static void init() {
-
+//Items
         itemSyringe = new ItemSyringe();
         itemWrench = new ItemWrench();
+        creativeItemEve = new CreativeItemEve();
+        itemEveReader = new ItemEveReader();
+        itemEveHypo = new ItemEveHypo();
+        //Plasmids
         plasmidIncinerate = new PlasmidIncinerate();
+        plasmidCycloneTrap = new PlasmidCycloneTrap();
+
 
     }
 
@@ -25,5 +34,9 @@ public class ModItems {
         itemSyringe.initModel();
         itemWrench.initModel();
         plasmidIncinerate.initModel();
+        creativeItemEve.initModel();
+        itemEveReader.initModel();
+        plasmidCycloneTrap.initModel();
+        itemEveHypo.initModel();
     }
 }

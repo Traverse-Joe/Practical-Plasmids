@@ -47,7 +47,7 @@ public class PracticalPlasmids
     @SubscribeEvent
     public void caps(AttachCapabilitiesEvent event) {
         if(event.getObject() instanceof EntityPlayer) {
-            event.addCapability(new ResourceLocation(MODID,"eve"), new EveContainerProvider(new EveContainer()));
+            event.addCapability(new ResourceLocation(MODID,"eve"), new EveContainerProvider( EveContainer.create(10000,7000,7000)));
         }
     }
 
