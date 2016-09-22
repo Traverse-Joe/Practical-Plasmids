@@ -1,8 +1,8 @@
 package kiba.plasmids.energy.implementation;
 
-import dank.planetary.api.eve.IEveConsumer;
-import dank.planetary.api.eve.IEveHolder;
-import dank.planetary.api.eve.IEveProducer;
+import kiba.plasmids.energy.IEveConsumer;
+import kiba.plasmids.energy.IEveHolder;
+import kiba.plasmids.energy.IEveProducer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.common.util.INBTSerializable;
 
