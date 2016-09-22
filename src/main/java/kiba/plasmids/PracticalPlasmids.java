@@ -1,8 +1,6 @@
 package kiba.plasmids;
 
-import kiba.plasmids.energy.IEveConsumer;
 import kiba.plasmids.energy.IEveHolder;
-import kiba.plasmids.energy.IEveProducer;
 import kiba.plasmids.energy.implementation.EveContainer;
 import kiba.plasmids.energy.implementation.EveContainerProvider;
 import kiba.plasmids.proxy.CommonProxy;
@@ -36,8 +34,6 @@ public class PracticalPlasmids
     @EventHandler
     public void preInit(FMLPreInitializationEvent event){
 
-        CapabilityManager.INSTANCE.register(IEveConsumer.class, new PlasmidsCapabilities.CapabilityEveConsumer<>(), EveContainer.class);
-        CapabilityManager.INSTANCE.register(IEveProducer.class, new PlasmidsCapabilities.CapabilityEveProducer<>(), EveContainer.class);
         CapabilityManager.INSTANCE.register(IEveHolder.class, new PlasmidsCapabilities.CapabilityEveHolder<>(), EveContainer.class);
 
         MinecraftForge.EVENT_BUS.register(this);
@@ -61,6 +57,7 @@ public class PracticalPlasmids
         if (event.isWasDeath()) {
             EntityPlayer dead = event.getOriginal();
             EntityPlayer alive = event.getEntityPlayer();
+
             if (dead.hasCapability(PlasmidsCapabilities.EVE_HOLDER, null) && alive.hasCapability(PlasmidsCapabilities.EVE_HOLDER, null))
                 alive.getCapability(PlasmidsCapabilities.EVE_HOLDER, null).deserializeNBT(dead.getCapability(PlasmidsCapabilities.EVE_HOLDER, null).serializeNBT());
         }
