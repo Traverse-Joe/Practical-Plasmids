@@ -16,6 +16,8 @@ public class ModItems {
     public static PlasmidCycloneTrap plasmidCycloneTrap;
     public static ItemEveHypo itemEveHypo;
     public static FoodPepBar foodPepBar;
+    public static ItemEveShard itemEveShard;
+    public static ItemMedKit itemMedKit;
 
     public static void init() {
         //Items
@@ -23,12 +25,16 @@ public class ModItems {
         itemWrench = new ItemWrench();
         creativeItemEve = new CreativeItemEve();
         itemEveReader = new ItemEveReader();
-        itemEveHypo = new ItemEveHypo();
+        itemEveShard = new ItemEveShard();
+
         //Plasmids
         plasmidIncinerate = new PlasmidIncinerate();
         plasmidCycloneTrap = new PlasmidCycloneTrap();
-        //Food
+
+        //Consumables
         foodPepBar =  new FoodPepBar();
+        itemEveHypo = new ItemEveHypo();
+        itemMedKit = new ItemMedKit();
 
 
     }
@@ -43,5 +49,7 @@ public class ModItems {
         plasmidCycloneTrap.initModel();
         itemEveHypo.initModel();
         foodPepBar.initModel();
+        itemEveShard.initModel();
+        itemMedKit.initModel();
     }
 }
