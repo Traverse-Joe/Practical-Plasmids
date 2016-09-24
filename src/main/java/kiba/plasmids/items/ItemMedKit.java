@@ -15,10 +15,19 @@ public class ItemMedKit extends BaseItem {
 
     }
 
+
     @Override
     public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
-        playerIn.addPotionEffect(new PotionEffect(MobEffects.INSTANT_HEALTH,1,3,false,false));
+        if (itemStackIn.getItemDamage() == 4) {
+            playerIn.addPotionEffect(new PotionEffect(MobEffects.INSTANT_HEALTH, 1, 3, false, false));
+            --itemStackIn.stackSize;
+        } else
+            playerIn.addPotionEffect(new PotionEffect(MobEffects.INSTANT_HEALTH, 1, 3, false, false));
         itemStackIn.damageItem(+1, playerIn);
+
         return super.onItemRightClick(itemStackIn, worldIn, playerIn, hand);
     }
 }
+
+
+
