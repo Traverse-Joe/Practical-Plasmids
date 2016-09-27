@@ -18,6 +18,7 @@ public class ModItems {
     public static FoodPepBar foodPepBar;
     public static ItemEveShard itemEveShard;
     public static ItemMedKit itemMedKit;
+    public static ItemBeer itemBeer;
 
     public static void init() {
         //Items
@@ -27,6 +28,7 @@ public class ModItems {
         itemEveReader = new ItemEveReader();
         itemEveShard = new ItemEveShard();
 
+
         //Plasmids
         plasmidIncinerate = new PlasmidIncinerate();
         plasmidCycloneTrap = new PlasmidCycloneTrap();
@@ -35,6 +37,7 @@ public class ModItems {
         foodPepBar =  new FoodPepBar();
         itemEveHypo = new ItemEveHypo();
         itemMedKit = new ItemMedKit();
+        itemBeer = new ItemBeer();
 
 
     }
@@ -51,5 +54,6 @@ public class ModItems {
         foodPepBar.initModel();
         itemEveShard.initModel();
         itemMedKit.initModel();
+        itemBeer.initModel();
     }
 }

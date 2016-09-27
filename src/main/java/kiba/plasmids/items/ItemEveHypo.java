@@ -2,12 +2,14 @@ package kiba.plasmids.items;
 
 import kiba.plasmids.PlasmidsCapabilities;
 import kiba.plasmids.energy.IEveHolder;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.MobEffects;
+import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumHand;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.*;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class ItemEveHypo extends BaseItem {
@@ -17,15 +19,42 @@ public class ItemEveHypo extends BaseItem {
 
 
     }
+    @Override
+    public EnumAction getItemUseAction(ItemStack stack) {
+        return EnumAction.BOW;
+    }
+
+    @Override
+    public int getMaxItemUseDuration (ItemStack stack) {
+
+        return 30;
+    }
 
     @Override
     public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
-        IEveHolder holder = playerIn.getCapability(PlasmidsCapabilities.EVE_HOLDER, null);
+       playerIn.setActiveHand(hand);
+        return new ActionResult(EnumActionResult.SUCCESS, itemStackIn);
+    }
+    @Override
+    public ItemStack onItemUseFinish (ItemStack stack, World worldIn, EntityLivingBase entityLiving) {
+
+        if (entityLiving instanceof EntityPlayer) {
+            EntityPlayer player = (EntityPlayer)entityLiving;
+            IEveHolder holder = player.getCapability(PlasmidsCapabilities.EVE_HOLDER, null);
+            holder.givePower(100, false);
+            player.attackEntityFrom(DamageSource.generic, 0.1F);
+            --stack.stackSize;
+
+        }
+
+        return stack;
+    }
+
+}
+/*
+ IEveHolder holder = playerIn.getCapability(PlasmidsCapabilities.EVE_HOLDER, null);
         holder.givePower(100, false);
         playerIn.attackEntityFrom(DamageSource.generic, 0.1F);
         --itemStackIn.stackSize;
-        return new ActionResult(EnumActionResult.SUCCESS, itemStackIn);
-         }
-
-}
+ */
 
