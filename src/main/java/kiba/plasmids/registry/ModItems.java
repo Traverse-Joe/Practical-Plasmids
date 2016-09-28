@@ -4,6 +4,7 @@ import kiba.plasmids.foods.FoodPepBar;
 import kiba.plasmids.items.*;
 import kiba.plasmids.plasmids.PlasmidCycloneTrap;
 import kiba.plasmids.plasmids.PlasmidIncinerate;
+import kiba.plasmids.plasmids.PlasmidSonicBoom;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -11,6 +12,7 @@ public class ModItems {
     public static ItemSyringe itemSyringe;
     public static ItemWrench itemWrench;
     public static PlasmidIncinerate plasmidIncinerate;
+    public static PlasmidSonicBoom plasmidSonicBoom;
     public static CreativeItemEve creativeItemEve;
     public static ItemEveReader itemEveReader;
     public static PlasmidCycloneTrap plasmidCycloneTrap;
@@ -32,6 +34,9 @@ public class ModItems {
         //Plasmids
         plasmidIncinerate = new PlasmidIncinerate();
         plasmidCycloneTrap = new PlasmidCycloneTrap();
+        plasmidSonicBoom = new PlasmidSonicBoom();
+
+
 
         //Consumables
         foodPepBar =  new FoodPepBar();
@@ -55,5 +60,6 @@ public class ModItems {
         itemEveShard.initModel();
         itemMedKit.initModel();
         itemBeer.initModel();
+        plasmidSonicBoom.initModel();
     }
 }
