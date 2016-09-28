@@ -3,7 +3,6 @@ package kiba.plasmids.items;
 import kiba.plasmids.PlasmidsCapabilities;
 import kiba.plasmids.energy.IEveHolder;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.DamageSource;
@@ -28,7 +27,7 @@ public class ItemEveReader extends BaseItem {
         }
         playerIn.attackEntityFrom(DamageSource.generic, 0.1F);
 
-        return new ActionResult(EnumActionResult.SUCCESS, itemStackIn);
+        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemStackIn);
     }
 
 }

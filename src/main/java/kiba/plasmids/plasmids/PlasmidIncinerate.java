@@ -5,18 +5,12 @@ import kiba.plasmids.energy.IEveHolder;
 import kiba.plasmids.energy.implementation.EveContainer;
 import kiba.plasmids.energy.implementation.EveContainerProvider;
 import kiba.plasmids.items.ItemBasePlasmid;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
-import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 
 public class PlasmidIncinerate extends ItemBasePlasmid {

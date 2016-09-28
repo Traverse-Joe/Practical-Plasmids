@@ -2,7 +2,6 @@ package kiba.plasmids.items;
 
 import kiba.plasmids.PracticalPlasmids;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.GameRegistry;

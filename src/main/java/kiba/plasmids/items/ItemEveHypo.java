@@ -4,12 +4,9 @@ import kiba.plasmids.PlasmidsCapabilities;
 import kiba.plasmids.energy.IEveHolder;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.MobEffects;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.*;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class ItemEveHypo extends BaseItem {
@@ -33,7 +30,7 @@ public class ItemEveHypo extends BaseItem {
     @Override
     public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
        playerIn.setActiveHand(hand);
-        return new ActionResult(EnumActionResult.SUCCESS, itemStackIn);
+        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemStackIn);
     }
     @Override
     public ItemStack onItemUseFinish (ItemStack stack, World worldIn, EntityLivingBase entityLiving) {

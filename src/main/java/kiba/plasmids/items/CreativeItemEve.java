@@ -6,9 +6,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class CreativeItemEve extends BaseItem {
@@ -20,10 +18,8 @@ public class CreativeItemEve extends BaseItem {
     public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
         IEveHolder holder = playerIn.getCapability(PlasmidsCapabilities.EVE_HOLDER, null);
         holder.givePower(10000, false);
-        return new ActionResult(EnumActionResult.SUCCESS, itemStackIn);
-
+        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemStackIn);
     }
-
 
 }
 

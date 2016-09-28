@@ -5,7 +5,6 @@ import kiba.plasmids.energy.implementation.EveContainer;
 import kiba.plasmids.energy.implementation.EveContainerProvider;
 import kiba.plasmids.proxy.CommonProxy;
 import kiba.plasmids.registry.ModItems;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
@@ -53,7 +52,7 @@ public class PracticalPlasmids
     }
 
     @SubscribeEvent
-    public void caps(AttachCapabilitiesEvent event) {
+    public void caps(AttachCapabilitiesEvent<?> event) {
         if(event.getObject() instanceof EntityPlayer) {
             event.addCapability(new ResourceLocation(MODID,"eve"), new EveContainerProvider( EveContainer.create(10000,7000,7000)));
         }
@@ -74,7 +73,7 @@ public class PracticalPlasmids
     @SubscribeEvent
     public void playerKilledEntity(LivingDropsEvent event) {
         if (event.getEntity() instanceof EntityMob) {
-            EntityItem entityItem = event.getEntityLiving().dropItem(ModItems.itemEveShard, random.nextInt(max - min + 1) + min);
+            event.getEntityLiving().dropItem(ModItems.itemEveShard, random.nextInt(max - min + 1) + min);
         }
     }
 

@@ -1,8 +1,6 @@
 package kiba.plasmids.items;
 
-import kiba.plasmids.PlasmidsCapabilities;
 import kiba.plasmids.PracticalPlasmids;
-import kiba.plasmids.energy.IEveHolder;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.ItemFood;
 import net.minecraftforge.client.model.ModelLoader;

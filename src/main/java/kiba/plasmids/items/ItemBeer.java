@@ -3,11 +3,9 @@ package kiba.plasmids.items;
 import kiba.plasmids.PlasmidsCapabilities;
 import kiba.plasmids.energy.IEveHolder;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.EnumAction;
-import net.minecraft.item.ItemBucketMilk;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ActionResult;
@@ -30,13 +28,10 @@ public class ItemBeer extends BaseItem {
     public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
         playerIn.setActiveHand(hand);
         return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemStackIn);
-
-
     }
 
     @Override
     public int getMaxItemUseDuration(ItemStack stack) {
-
         return 30;
     }
 
