@@ -9,17 +9,16 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BaseItem extends Item {
-    public BaseItem(String name){
-        this.setRegistryName(name);
-        this.setUnlocalizedName(PracticalPlasmids.MODID + "." + name);
-        GameRegistry.register(this);
+	public BaseItem(String name) {
+		this.setRegistryName(name);
+		this.setUnlocalizedName(PracticalPlasmids.MODID + "." + name);
+		GameRegistry.register(this);
+	}
 
-    }
-    @SideOnly(Side.CLIENT)
-    public void initModel(){
-        ModelLoader.setCustomModelResourceLocation(this , 0, new ModelResourceLocation(getRegistryName(),"inventory"));
+	@SideOnly(Side.CLIENT)
+	public void initModel() {
+		ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
 
-    }
+	}
 
 }
-

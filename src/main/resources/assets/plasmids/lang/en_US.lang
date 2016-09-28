@@ -1,4 +1,4 @@
-#eng_US.lang File
+#en_US.lang File
 
 #Items
 item.plasmids.syringe.name=Empty Syringe
@@ -16,3 +16,6 @@ item.plasmids.beer.name=Beer
 #Plasmids
 item.plasmids.plasmid_incinerate.name=Incinerate
 item.plasmids.plasmid_cycloneTrap.name=Cyclone Trap
+
+#Creative Tab
+itemGroup.plasmids=Practical Plasmids

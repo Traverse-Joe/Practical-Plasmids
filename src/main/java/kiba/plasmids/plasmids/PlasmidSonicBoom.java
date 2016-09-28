@@ -1,37 +1,39 @@
 package kiba.plasmids.plasmids;
 
+import kiba.plasmids.PlasmidsCapabilities;
+import kiba.plasmids.energy.IEveHolder;
 import kiba.plasmids.items.ItemBasePlasmid;
 import kiba.plasmids.registry.ModItems;
-import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.Vec3d;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.relauncher.Side;
 
 public class PlasmidSonicBoom extends ItemBasePlasmid {
 	
 	public PlasmidSonicBoom() {
 		super("plasmid_sonicBoom");
-		MinecraftForge.EVENT_BUS.register(this);
+		//MinecraftForge.EVENT_BUS.register(this);
 	}
+	
+	@Override
+    public EnumAction getItemUseAction(ItemStack stack) {
+        return EnumAction.BOW;
+    }
 
-	@SubscribeEvent
-	public void onItemUse(PlayerInteractEvent.EntityInteractSpecific event) {
-		if (event.getSide() == Side.SERVER && event.getHand() == EnumHand.OFF_HAND) {
-			ItemStack stack = event.getItemStack();
+	@Override
+    public boolean itemInteractionForEntity(ItemStack stack, EntityPlayer playerIn, EntityLivingBase target, EnumHand hand) {
+		if (hand == EnumHand.OFF_HAND && playerIn.getItemStackFromSlot(EntityEquipmentSlot.MAINHAND) == null) {
 			if (stack != null) {
 				Item item = stack.getItem();
 				if (item.equals(ModItems.plasmidSonicBoom)) {
-					EntityPlayer player = event.getEntityPlayer();
-					Vec3d lookVec = player.getLookVec();
-					Entity target = event.getTarget();
+					Vec3d lookVec = playerIn.getLookVec();
 					double multiplier = 2;
-					multiplier *= player.getAIMoveSpeed() * 10;
+					multiplier *= playerIn.getAIMoveSpeed() * 10;
 					lookVec = lookVec.scale(multiplier);
 					target.motionX += lookVec.xCoord;
 					double yToAdd = lookVec.yCoord;
@@ -40,9 +42,14 @@ public class PlasmidSonicBoom extends ItemBasePlasmid {
 					}
 					target.motionY += yToAdd + 0.5;
 					target.motionZ += lookVec.zCoord * 4;
+					IEveHolder holder = playerIn.getCapability(PlasmidsCapabilities.EVE_HOLDER, null);
+		            if (holder.getStoredPower()>=10){
+		                holder.takePower(10 , false);
+		            }
 				}
 			}
 		}
+		return super.itemInteractionForEntity(stack, playerIn, target, hand);
 	}
 	
 }

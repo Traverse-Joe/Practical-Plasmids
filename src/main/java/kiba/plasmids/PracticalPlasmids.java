@@ -38,10 +38,13 @@ public class PracticalPlasmids
     @SidedProxy(clientSide = PracticalPlasmids.CLIENTPROXY, serverSide = PracticalPlasmids.COMMONPROXY)
     public static CommonProxy proxy;
 
-    @EventHandler
+    @SuppressWarnings({
+			"unchecked", "rawtypes"
+	})
+	@EventHandler
     public void preInit(FMLPreInitializationEvent event){
 
-        CapabilityManager.INSTANCE.register(IEveHolder.class, new PlasmidsCapabilities.CapabilityEveHolder<>(), EveContainer.class);
+        CapabilityManager.INSTANCE.register(IEveHolder.class, new PlasmidsCapabilities.CapabilityEveHolder(), EveContainer.class);
 
         MinecraftForge.EVENT_BUS.register(this);
 
@@ -52,7 +55,7 @@ public class PracticalPlasmids
     }
 
     @SubscribeEvent
-    public void caps(AttachCapabilitiesEvent<?> event) {
+    public void caps(AttachCapabilitiesEvent event) {
         if(event.getObject() instanceof EntityPlayer) {
             event.addCapability(new ResourceLocation(MODID,"eve"), new EveContainerProvider( EveContainer.create(10000,7000,7000)));
         }

@@ -20,6 +20,7 @@ public class ItemEveReader extends BaseItem {
     @Override
     public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
         IEveHolder holder = playerIn.getCapability(PlasmidsCapabilities.EVE_HOLDER, null);
+        if (holder == null || playerIn == null) { return new ActionResult<ItemStack>(EnumActionResult.FAIL, itemStackIn); }
         if(!worldIn.isRemote){
             playerIn.addChatMessage(new TextComponentString(String.format("%s: %d","Capacity",holder.getCapacity())));
             playerIn.addChatMessage(new TextComponentString(String.format("%s: %d","Stored",holder.getStoredPower())));

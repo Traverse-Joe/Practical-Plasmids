@@ -10,16 +10,18 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
 public class CreativeItemEve extends BaseItem {
-    public CreativeItemEve() {
-        super("creative_eveHypo");
-    }
+	public CreativeItemEve() {
+		super("creative_eveHypo");
+	}
 
-    @Override
-    public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
-        IEveHolder holder = playerIn.getCapability(PlasmidsCapabilities.EVE_HOLDER, null);
-        holder.givePower(10000, false);
-        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemStackIn);
-    }
+	@Override
+	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
+		if (!worldIn.isRemote) {
+			IEveHolder holder = playerIn.getCapability(PlasmidsCapabilities.EVE_HOLDER, null);
+			holder.givePower(10000, false);
+			return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemStackIn);
+		}
+		return new ActionResult<ItemStack>(EnumActionResult.FAIL, itemStackIn);
+	}
 
 }
-
