@@ -10,12 +10,14 @@ item.plasmids.pep_bar.name=Pep Bar
 item.plasmids.eve_shard.name=EVE Shard
 item.plasmids.med_kit.name=First Aid Kit
 item.plasmids.beer.name=Beer
+item.plasmids.eve_trashCan.name=Eve Trash Can
 
 
 
 #Plasmids
 item.plasmids.plasmid_incinerate.name=Incinerate
 item.plasmids.plasmid_cycloneTrap.name=Cyclone Trap
+item.plasmids.plasmid_sonicBoom.name=Sonic Boom
 
 #Creative Tab
 itemGroup.plasmids=Practical Plasmids

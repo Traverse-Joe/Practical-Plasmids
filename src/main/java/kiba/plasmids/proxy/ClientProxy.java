@@ -1,6 +1,6 @@
 package kiba.plasmids.proxy;
 
-import kiba.plasmids.PPCreativeTab;
+import kiba.plasmids.PracticalPlasmidsCreativeTab;
 import kiba.plasmids.PracticalPlasmids;
 import kiba.plasmids.registry.ModItems;
 import net.minecraft.creativetab.CreativeTabs;
@@ -14,7 +14,7 @@ public class ClientProxy extends CommonProxy{
 	@Override
 	public void preInit(FMLPreInitializationEvent event) {
 		super.preInit(event);
-		CREATIVE_TAB = new PPCreativeTab();
+		CREATIVE_TAB = new PracticalPlasmidsCreativeTab();
 	}
 	
     @Override

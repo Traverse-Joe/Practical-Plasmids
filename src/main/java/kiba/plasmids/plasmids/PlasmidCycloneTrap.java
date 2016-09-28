@@ -2,6 +2,7 @@ package kiba.plasmids.plasmids;
 
 import kiba.plasmids.PlasmidsCapabilities;
 import kiba.plasmids.energy.IEveHolder;
+import kiba.plasmids.entities.EntityCyclone;
 import kiba.plasmids.items.ItemBasePlasmid;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntitySnowball;
@@ -25,14 +26,14 @@ public class PlasmidCycloneTrap extends ItemBasePlasmid {
 			IEveHolder holder = playerIn.getCapability(PlasmidsCapabilities.EVE_HOLDER, null);
 			if (holder.getStoredPower() >= 20) {
 				if (!playerIn.worldObj.isRemote) {
-					EntitySnowball snowball = new EntitySnowball(playerIn.worldObj, playerIn) {
+					EntityCyclone cyclone = new EntityCyclone(playerIn.worldObj, playerIn) {
 						@Override
 						protected void onImpact(RayTraceResult result) {
 							if (result.entityHit != null) result.entityHit.motionY = 2;
 						}
 					};
-					snowball.setHeadingFromThrower(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 1.5F, 1.0F);
-					playerIn.worldObj.spawnEntityInWorld(snowball);
+					cyclone.setHeadingFromThrower(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 1.5F, 1.0F);
+					playerIn.worldObj.spawnEntityInWorld(cyclone);
 					holder.takePower(20, false);
 				}
 			}

@@ -7,9 +7,9 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class PPCreativeTab extends CreativeTabs {
+public class PracticalPlasmidsCreativeTab extends CreativeTabs {
 
-	public PPCreativeTab() {
+	public PracticalPlasmidsCreativeTab() {
 		super(PracticalPlasmids.MODID);
 	}
 	
@@ -26,11 +26,12 @@ public class PPCreativeTab extends CreativeTabs {
 		items.add(new ItemStack(ModItems.plasmidCycloneTrap));
 		items.add(new ItemStack(ModItems.plasmidIncinerate));
 		items.add(new ItemStack(ModItems.plasmidSonicBoom));
+		items.add(new ItemStack(ModItems.itemEveTrashCan));
 	}
 
 	@Override
 	public Item getTabIconItem() {
-		return ModItems.plasmidSonicBoom;
+		return ModItems.itemEveHypo;
 	}
 
 }

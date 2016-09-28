@@ -31,6 +31,9 @@ public class PlasmidSonicBoom extends ItemBasePlasmid {
 			if (stack != null) {
 				Item item = stack.getItem();
 				if (item.equals(ModItems.plasmidSonicBoom)) {
+					IEveHolder holder = playerIn.getCapability(PlasmidsCapabilities.EVE_HOLDER, null);
+					if (holder.getStoredPower()>=10){
+						holder.takePower(10 , false);
 					Vec3d lookVec = playerIn.getLookVec();
 					double multiplier = 2;
 					multiplier *= playerIn.getAIMoveSpeed() * 10;
@@ -42,9 +45,7 @@ public class PlasmidSonicBoom extends ItemBasePlasmid {
 					}
 					target.motionY += yToAdd + 0.5;
 					target.motionZ += lookVec.zCoord * 4;
-					IEveHolder holder = playerIn.getCapability(PlasmidsCapabilities.EVE_HOLDER, null);
-		            if (holder.getStoredPower()>=10){
-		                holder.takePower(10 , false);
+
 		            }
 				}
 			}
