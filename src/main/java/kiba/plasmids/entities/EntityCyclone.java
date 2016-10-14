@@ -12,6 +12,7 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 public class EntityCyclone extends EntitySnowball {
+
     public EntityCyclone(World worldIn)
     {
         super(worldIn);
@@ -27,7 +28,8 @@ public class EntityCyclone extends EntitySnowball {
         super(worldIn, x, y, z);
     }
 
-    public static void func_189662_a(DataFixer p_189662_0_)
+
+    public static void EntityCyclone(DataFixer p_189662_0_)
     {
         EntityThrowable.func_189661_a(p_189662_0_, "entity_cyclone");
     }

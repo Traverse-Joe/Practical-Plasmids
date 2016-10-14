@@ -27,6 +27,8 @@ public class PracticalPlasmidsCreativeTab extends CreativeTabs {
 		items.add(new ItemStack(ModItems.plasmidIncinerate));
 		items.add(new ItemStack(ModItems.plasmidSonicBoom));
 		items.add(new ItemStack(ModItems.itemEveTrashCan));
+		items.add(new ItemStack(ModItems.itemCoffee));
+		items.add(new ItemStack(ModItems.itemCigarette));
 	}
 
 	@Override
