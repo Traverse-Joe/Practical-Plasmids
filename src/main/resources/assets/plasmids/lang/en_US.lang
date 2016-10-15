@@ -16,10 +16,12 @@ item.plasmids.item_Cigarette.name=Pack of Smokes
 
 
 
+
 #Plasmids
 item.plasmids.plasmid_incinerate.name=Incinerate
 item.plasmids.plasmid_cycloneTrap.name=Cyclone Trap
 item.plasmids.plasmid_sonicBoom.name=Sonic Boom
+item.plasmids.plasmid_orionSun.name=Orion Sun
 
 #Creative Tab
 itemGroup.plasmids=Practical Plasmids

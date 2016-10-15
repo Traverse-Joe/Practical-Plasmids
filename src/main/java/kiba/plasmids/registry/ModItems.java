@@ -4,6 +4,7 @@ import kiba.plasmids.foods.FoodPepBar;
 import kiba.plasmids.items.*;
 import kiba.plasmids.plasmids.PlasmidCycloneTrap;
 import kiba.plasmids.plasmids.PlasmidIncinerate;
+import kiba.plasmids.plasmids.PlasmidOrionSun;
 import kiba.plasmids.plasmids.PlasmidSonicBoom;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -24,6 +25,7 @@ public class ModItems {
     public static ItemEveTrashCan itemEveTrashCan;
     public static ItemCoffee itemCoffee;
     public static ItemCigarette itemCigarette;
+    public static PlasmidOrionSun plasmidOrionSun;
 
 
     public static void init() {
@@ -41,6 +43,7 @@ public class ModItems {
         plasmidIncinerate = new PlasmidIncinerate();
         plasmidCycloneTrap = new PlasmidCycloneTrap();
         plasmidSonicBoom = new PlasmidSonicBoom();
+        plasmidOrionSun = new PlasmidOrionSun();
 
 
 
@@ -72,6 +75,7 @@ public class ModItems {
         itemEveTrashCan.initModel();
         itemCoffee.initModel();
         itemCigarette.initModel();
+        plasmidOrionSun.initModel();
 
     }
 }
