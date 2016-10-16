@@ -1,6 +1,5 @@
 package kiba.plasmids.registry;
 
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.ShapedRecipes;

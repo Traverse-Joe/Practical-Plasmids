@@ -32,9 +32,10 @@ public class PlasmidFreeze extends ItemBasePlasmid {
     @Override
     public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
         playerIn.setActiveHand(hand);
-        if (hand == EnumHand.OFF_HAND && playerIn.getItemStackFromSlot(EntityEquipmentSlot.MAINHAND) == null)
+        if (hand == EnumHand.OFF_HAND && playerIn.getItemStackFromSlot(EntityEquipmentSlot.MAINHAND) == null) {
             return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemStackIn);
-        return null;
+        }
+        return ActionResult.newResult(EnumActionResult.SUCCESS, itemStackIn);
     }
 
     @Override
@@ -46,26 +47,15 @@ public class PlasmidFreeze extends ItemBasePlasmid {
     public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving) {
 
         if (entityLiving instanceof EntityPlayer) {
-            EntityMob mob = (EntityMob) entityLiving;
             EntityPlayer player = (EntityPlayer) entityLiving;
             IEveHolder holder = player.getCapability(PlasmidsCapabilities.EVE_HOLDER, null);
             if (holder.getStoredPower() >= 20) {
                 if (!player.worldObj.isRemote) {
-                    EntityCyclone cyclone = new EntityCyclone(player.worldObj, player) {
-                        @Override
-                        protected void onImpact(RayTraceResult result) {
-                            if (result.entityHit != null)
-                            entityLiving.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS,60,6,false,false));
-                        }
-                    };
+                    EntityCyclone cyclone = new EntityCyclone(player.worldObj, player);
                     cyclone.setHeadingFromThrower(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
-                    player.worldObj.spawnEntityInWorld(cyclone);
+                    worldIn.spawnEntityInWorld(cyclone);
                     holder.takePower(20, false);
-
-
                 }
-
-
             }
         }
 

@@ -5,6 +5,8 @@ import net.minecraft.entity.monster.EntityBlaze;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntitySnowball;
 import net.minecraft.entity.projectile.EntityThrowable;
+import net.minecraft.init.MobEffects;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.datafix.DataFixer;
@@ -29,7 +31,7 @@ public class EntityCyclone extends EntitySnowball {
     }
 
 
-    public static void EntityCyclone(DataFixer p_189662_0_)
+    public static void func_189662_a(DataFixer p_189662_0_)
     {
         EntityThrowable.func_189661_a(p_189662_0_, "entity_cyclone");
     }
@@ -41,14 +43,10 @@ public class EntityCyclone extends EntitySnowball {
     {
         if (result.entityHit != null)
         {
-            int i = 0;
-
-            if (result.entityHit instanceof EntityBlaze)
-            {
-                i = 3;
+            result.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), (float)0);
+            if (result.entityHit instanceof EntityLivingBase) {
+            	((EntityLivingBase) result.entityHit).addPotionEffect(new PotionEffect(MobEffects.SLOWNESS,60,6,false,false));
             }
-
-            result.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), (float)i);
         }
 
         for (int j = 0; j < 8; ++j)
