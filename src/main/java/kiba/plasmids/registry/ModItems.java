@@ -2,10 +2,7 @@ package kiba.plasmids.registry;
 
 import kiba.plasmids.foods.FoodPepBar;
 import kiba.plasmids.items.*;
-import kiba.plasmids.plasmids.PlasmidCycloneTrap;
-import kiba.plasmids.plasmids.PlasmidIncinerate;
-import kiba.plasmids.plasmids.PlasmidOrionSun;
-import kiba.plasmids.plasmids.PlasmidSonicBoom;
+import kiba.plasmids.plasmids.*;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -26,7 +23,7 @@ public class ModItems {
     public static ItemCoffee itemCoffee;
     public static ItemCigarette itemCigarette;
     public static PlasmidOrionSun plasmidOrionSun;
-
+    public static PlasmidFreeze plasmidFreeze;
 
     public static void init() {
         //Items
@@ -44,6 +41,7 @@ public class ModItems {
         plasmidCycloneTrap = new PlasmidCycloneTrap();
         plasmidSonicBoom = new PlasmidSonicBoom();
         plasmidOrionSun = new PlasmidOrionSun();
+        plasmidFreeze = new PlasmidFreeze();
 
 
 
@@ -76,6 +74,7 @@ public class ModItems {
         itemCoffee.initModel();
         itemCigarette.initModel();
         plasmidOrionSun.initModel();
+        plasmidFreeze.initModel();
 
     }
 }
