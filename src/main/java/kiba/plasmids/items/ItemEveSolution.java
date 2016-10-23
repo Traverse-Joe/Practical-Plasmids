@@ -1,12 +1,9 @@
-package kiba.plasmids.plasmids;
+package kiba.plasmids.items;
 
 import kiba.plasmids.PlasmidsCapabilities;
 import kiba.plasmids.energy.IEveHolder;
-import kiba.plasmids.entities.EntityFreeze;
-import kiba.plasmids.items.ItemBasePlasmid;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
@@ -14,29 +11,25 @@ import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
-public class PlasmidFreeze extends ItemBasePlasmid {
-    public PlasmidFreeze() {
-        super("plasmid_Freeze");
+public class ItemEveSolution extends BaseItem {
+    public ItemEveSolution() {
+        super("eve_Solution");
     }
-
     @Override
     public EnumAction getItemUseAction(ItemStack stack) {
-        return EnumAction.BOW;
+        return EnumAction.DRINK;
 
     }
 
     @Override
     public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
         playerIn.setActiveHand(hand);
-        if (hand == EnumHand.OFF_HAND && playerIn.getItemStackFromSlot(EntityEquipmentSlot.MAINHAND) == null) {
-
-        }
-        return ActionResult.newResult(EnumActionResult.SUCCESS, itemStackIn);
+        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemStackIn);
     }
 
     @Override
     public int getMaxItemUseDuration(ItemStack stack) {
-        return 30;
+        return 10;
     }
 
     @Override
@@ -45,17 +38,15 @@ public class PlasmidFreeze extends ItemBasePlasmid {
         if (entityLiving instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) entityLiving;
             IEveHolder holder = player.getCapability(PlasmidsCapabilities.EVE_HOLDER, null);
-            if (holder.getStoredPower() >= 20) {
-                if (!player.worldObj.isRemote) {
-                    EntityFreeze freeze = new EntityFreeze(player.worldObj, player);
-                    freeze.setHeadingFromThrower(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
-                    worldIn.spawnEntityInWorld(freeze);
-                    holder.takePower(20, false);
-                }
-            }
+            holder.givePower(1, false);
+            stack.stackSize--;
         }
 
-        return super.onItemUseFinish(stack, worldIn, entityLiving);
+        return stack;
     }
 }
+
+
+
+
 

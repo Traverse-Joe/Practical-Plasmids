@@ -24,6 +24,8 @@ public class ModItems {
     public static ItemCigarette itemCigarette;
     public static PlasmidOrionSun plasmidOrionSun;
     public static PlasmidFreeze plasmidFreeze;
+    public static ItemPlasmidCore itemPlasmidCore;
+    public static ItemEveSolution itemEveSolution;
 
     public static void init() {
         //Items
@@ -33,6 +35,8 @@ public class ModItems {
         itemEveReader = new ItemEveReader();
         itemEveShard = new ItemEveShard();
         itemEveTrashCan = new ItemEveTrashCan();
+        itemPlasmidCore = new ItemPlasmidCore();
+        itemEveSolution = new ItemEveSolution();
 
 
 
@@ -75,6 +79,8 @@ public class ModItems {
         itemCigarette.initModel();
         plasmidOrionSun.initModel();
         plasmidFreeze.initModel();
+        itemPlasmidCore.initModel();
+        itemEveSolution.initModel();
 
     }
 }

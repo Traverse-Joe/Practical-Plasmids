@@ -2,6 +2,7 @@ package kiba.plasmids.entities;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityBlaze;
+import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntitySnowball;
 import net.minecraft.entity.projectile.EntityThrowable;
@@ -13,19 +14,19 @@ import net.minecraft.util.datafix.DataFixer;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
-public class EntityCyclone extends EntitySnowball {
+public class EntityFreeze extends EntitySnowball {
 
-    public EntityCyclone(World worldIn)
+    public EntityFreeze(World worldIn)
     {
         super(worldIn);
     }
 
-    public EntityCyclone(World worldIn, EntityLivingBase throwerIn)
+    public EntityFreeze(World worldIn, EntityLivingBase throwerIn)
     {
         super(worldIn, throwerIn);
     }
 
-    public EntityCyclone(World worldIn, double x, double y, double z)
+    public EntityFreeze(World worldIn, double x, double y, double z)
     {
         super(worldIn, x, y, z);
     }
@@ -44,8 +45,8 @@ public class EntityCyclone extends EntitySnowball {
         if (result.entityHit != null)
         {
             result.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), (float)0);
-            if (result.entityHit instanceof EntityLivingBase) {
-            	((EntityLivingBase) result.entityHit).addPotionEffect(new PotionEffect(MobEffects.SLOWNESS,60,6,false,false));
+            if (result.entityHit instanceof EntityMob) {
+            	((EntityMob) result.entityHit).addPotionEffect(new PotionEffect(MobEffects.SLOWNESS,260,30,false,false));
             }
         }
 

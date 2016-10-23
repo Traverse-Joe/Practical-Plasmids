@@ -31,6 +31,8 @@ public class PracticalPlasmidsCreativeTab extends CreativeTabs {
 		items.add(new ItemStack(ModItems.itemCigarette));
 		items.add(new ItemStack(ModItems.plasmidOrionSun));
 		items.add(new ItemStack(ModItems.plasmidFreeze));
+		items.add(new ItemStack(ModItems.itemPlasmidCore));
+		items.add(new ItemStack(ModItems.itemEveSolution));
 	}
 
 	@Override

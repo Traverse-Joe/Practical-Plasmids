@@ -11,14 +11,14 @@ import net.minecraft.world.World;
 public class ItemMedKit extends BaseItem {
     public ItemMedKit() {
         super("med_kit");
-        this.setMaxDamage(4);
+        this.setMaxDamage(10);
 
     }
 
 
     @Override
     public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
-        if (itemStackIn.getItemDamage() == 4) {
+        if (itemStackIn.getItemDamage() == 10) {
             playerIn.addPotionEffect(new PotionEffect(MobEffects.INSTANT_HEALTH, 1, 3, false, false));
             --itemStackIn.stackSize;
         } else

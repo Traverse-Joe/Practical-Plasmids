@@ -15,6 +15,7 @@ public class ItemEveReader extends BaseItem {
 
     public ItemEveReader() {
         super("eve_Reader");
+        this.setMaxStackSize(1);
     }
 
     @Override

@@ -13,15 +13,18 @@ item.plasmids.beer.name=Beer
 item.plasmids.eve_trashCan.name=Eve Trash Can
 item.plasmids.item_Coffee.name=Coffee
 item.plasmids.item_Cigarette.name=Pack of Smokes
+item.plasmids.eve_Solution.name=Raw Eve
 
 
 
 
 #Plasmids
+item.plasmids.plasmid_Core.name=Adam
 item.plasmids.plasmid_incinerate.name=Incinerate
 item.plasmids.plasmid_cycloneTrap.name=Cyclone Trap
 item.plasmids.plasmid_sonicBoom.name=Sonic Boom
 item.plasmids.plasmid_orionSun.name=Orion Sun
+item.plasmids.plasmid_Freeze.name=Winter Blast
 
 #Creative Tab
 itemGroup.plasmids=Practical Plasmids
