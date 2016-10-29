@@ -39,7 +39,10 @@ public class ItemEveTrashCan extends BaseItem {
         if (entityLiving instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer)entityLiving;
             IEveHolder holder = player.getCapability(PlasmidsCapabilities.EVE_HOLDER, null);
-            holder.takePower(100000, false);
+            while(holder.getStoredPower()>0L) {
+                holder.takePower(10000L, false);
+            }
+
             player.attackEntityFrom(DamageSource.generic, 0.1F);
 
 

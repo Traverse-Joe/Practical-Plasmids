@@ -8,6 +8,7 @@ import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class RecipeRegistry {
     public static void register(FMLPreInitializationEvent event) {
@@ -25,19 +26,20 @@ public class RecipeRegistry {
         GameRegistry.addRecipe(new ItemStack(ModItems.itemEveSolution), new Object[]{" E ", "EBE", " E ", 'E', ModItems.itemEveShard, 'B', Items.POTIONITEM});
         GameRegistry.addRecipe(new ItemStack(ModItems.itemWrench), new Object[]{" B ", " I ", " R ", 'B',Blocks.IRON_BLOCK,'I',Items.IRON_INGOT,'R',Items.REDSTONE});
         GameRegistry.addRecipe(new ItemStack(ModItems.itemMedKit), new Object[]{"III","SGE","III",'I',Items.IRON_INGOT,'S',ModItems.itemSyringe,'G',Items.GOLDEN_APPLE,'E',ModItems.itemEveSolution});
+        GameRegistry.addShapelessRecipe(new ItemStack(ModItems.itemEveLighter), new Object[]{Items.FLINT,ModItems.itemEveShard});
 
         //CONSUMABLES RECIPES
 
         GameRegistry.addShapelessRecipe(new ItemStack(ModItems.foodPepBar,8), new Object[]{Items.SUGAR,Items.PAPER,ModItems.itemEveSolution});
         GameRegistry.addShapelessRecipe(new ItemStack(ModItems.itemBeer,2), new Object[]{Items.ROTTEN_FLESH,ModItems.itemEveSolution,Items.WHEAT,});
         GameRegistry.addShapelessRecipe(new ItemStack(ModItems.itemCoffee), new Object[]{new ItemStack(Items.DYE,0,3),Items.SUGAR,ModItems.itemEveSolution});
-        GameRegistry.addShapelessRecipe(new ItemStack(ModItems.itemCigarette), new Object[]{ModItems.itemEveSolution,Items.PAPER,Items.GUNPOWDER,new ItemStack(Items.FLINT_AND_STEEL.setContainerItem(Items.FLINT_AND_STEEL))});
+        GameRegistry.addShapelessRecipe(new ItemStack(ModItems.itemCigarette), new Object[]{ModItems.itemEveSolution,Items.PAPER,Items.GUNPOWDER,new ItemStack(ModItems.itemEveLighter,1, OreDictionary.WILDCARD_VALUE)});
 
 
 
 
         //PLASMID RECIPES
-        GameRegistry.addRecipe(new ItemStack(ModItems.plasmidIncinerate), new Object[]{"FCF", "EPE", "FCF", 'F', Items.FLINT_AND_STEEL, 'C', Items.FIRE_CHARGE, 'E', ModItems.itemEveShard, 'P', ModItems.itemPlasmidCore.setContainerItem(ModItems.itemPlasmidCore)});
+        GameRegistry.addRecipe(new ItemStack(ModItems.plasmidIncinerate), new Object[]{"FCF", "EPE", "FCF", 'F', new ItemStack(ModItems.itemEveLighter), 'C', Items.FIRE_CHARGE, 'E', ModItems.itemEveShard, 'P', ModItems.itemPlasmidCore.setContainerItem(ModItems.itemPlasmidCore)});
         GameRegistry.addRecipe(new ItemStack(ModItems.plasmidCycloneTrap), new Object[]{"FGF","ECE","FPF", 'F',Items.FEATHER,'G',Items.GHAST_TEAR,'E',ModItems.itemEveShard,'P', Blocks.PISTON,'C',ModItems.itemPlasmidCore.setContainerItem(ModItems.itemPlasmidCore) });
         GameRegistry.addRecipe(new ItemStack(ModItems.plasmidOrionSun),new Object[]{"GTG","TCT","GTG",'G',Blocks.GLOWSTONE,'T',Blocks.TORCH,'C',ModItems.itemPlasmidCore.setContainerItem(ModItems.itemPlasmidCore)});
         GameRegistry.addRecipe(new ItemStack(ModItems.plasmidFreeze), new Object[]{"SPS","BCB","SPS",'S',Blocks.SNOW,'P',Blocks.PACKED_ICE,'B',Items.SNOWBALL,'C',ModItems.itemPlasmidCore.setContainerItem(ModItems.itemPlasmidCore)});
