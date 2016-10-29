@@ -27,8 +27,6 @@ import java.util.Random;
 public class PracticalPlasmids
 {
     Random random = new Random();
-    int min = 0;
-    int max = 1;
     public static final String MODID = "plasmids";
     public static final String VERSION = "0.0.1";
     public static final String MODNAME = "Practical Plasmids";
@@ -73,10 +71,12 @@ public class PracticalPlasmids
         }
     }
 
+
     @SubscribeEvent
     public void playerKilledEntity(LivingDropsEvent event) {
         if (event.getEntity() instanceof EntityMob) {
-            event.getEntityLiving().dropItem(ModItems.itemEveShard, random.nextInt(max - min + 1) + min);
+           if(random.nextInt(5) == 0)
+            event.getEntityLiving().dropItem(ModItems.itemEveShard, 2);
         }
     }
 

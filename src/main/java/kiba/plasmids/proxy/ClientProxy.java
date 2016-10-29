@@ -15,7 +15,7 @@ public class ClientProxy extends CommonProxy{
 	@Override
 	public void preInit(FMLPreInitializationEvent event) {
 		super.preInit(event);
-        RecipeRegistry.register(event);
+
 		CREATIVE_TAB = new PracticalPlasmidsCreativeTab();
 
 	}
