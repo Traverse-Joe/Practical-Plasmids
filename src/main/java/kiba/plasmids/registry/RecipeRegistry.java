@@ -26,7 +26,7 @@ public class RecipeRegistry {
         GameRegistry.addRecipe(new ItemStack(ModItems.itemEveSolution), new Object[]{" E ", "EBE", " E ", 'E', ModItems.itemEveShard, 'B', Items.POTIONITEM});
         GameRegistry.addRecipe(new ItemStack(ModItems.itemWrench), new Object[]{" B ", " I ", " R ", 'B',Blocks.IRON_BLOCK,'I',Items.IRON_INGOT,'R',Items.REDSTONE});
         GameRegistry.addRecipe(new ItemStack(ModItems.itemMedKit), new Object[]{"III","SGE","III",'I',Items.IRON_INGOT,'S',ModItems.itemSyringe,'G',Items.GOLDEN_APPLE,'E',ModItems.itemEveSolution});
-        GameRegistry.addShapelessRecipe(new ItemStack(ModItems.itemEveLighter), new Object[]{Items.FLINT,ModItems.itemEveShard});
+        GameRegistry.addShapelessRecipe(new ItemStack(ModItems.itemEveLighter), new Object[]{Items.IRON_INGOT,ModItems.itemEveShard});
 
         //CONSUMABLES RECIPES
 
