@@ -6,8 +6,6 @@ import kiba.plasmids.items.ItemBasePlasmid;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
@@ -27,7 +25,7 @@ public class PlasmidOrionSun extends ItemBasePlasmid {
 			IEveHolder holder = playerIn.getCapability(PlasmidsCapabilities.EVE_HOLDER, null);
 			if (holder.getStoredPower() >= 10) {
 				if (Blocks.TORCH.canPlaceBlockOnSide(worldIn, pos, facing)) {
-					((ItemBlock) Item.getItemFromBlock(Blocks.TORCH)).onItemUse(stack, playerIn, worldIn, pos, hand, facing, hitX, hitY, hitZ);
+					new ItemStack(Blocks.TORCH).onItemUse(playerIn, worldIn, pos, hand, facing, hitX, hitY, hitZ);
 					holder.takePower(10, false);
 				}
 			}
