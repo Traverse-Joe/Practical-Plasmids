@@ -1,5 +1,6 @@
 package kiba.plasmids.plasmids;
 
+import kiba.plasmids.Globals;
 import kiba.plasmids.PlasmidsCapabilities;
 import kiba.plasmids.energy.IEveHolder;
 import kiba.plasmids.entities.EntityFreeze;
@@ -45,12 +46,12 @@ public class PlasmidFreeze extends ItemBasePlasmid {
         if (entityLiving instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) entityLiving;
             IEveHolder holder = player.getCapability(PlasmidsCapabilities.EVE_HOLDER, null);
-            if (holder.getStoredPower() >= 20) {
+            if (holder.getStoredPower() >= Globals.EVE_USAGE_PER_FREEZE) {
                 if (!player.worldObj.isRemote) {
                     EntityFreeze freeze = new EntityFreeze(player.worldObj, player);
                     freeze.setHeadingFromThrower(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
                     worldIn.spawnEntityInWorld(freeze);
-                    holder.takePower(20, false);
+                    holder.takePower(Globals.EVE_USAGE_PER_FREEZE, false);
                 }
             }
         }

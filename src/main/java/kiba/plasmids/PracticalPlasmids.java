@@ -23,17 +23,15 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.Random;
 
-@Mod(modid = PracticalPlasmids.MODID, version = PracticalPlasmids.VERSION, name = PracticalPlasmids.MODNAME)
+import static kiba.plasmids.Globals.MODID;
+
+@Mod(modid = MODID, version = Globals.VERSION, name = Globals.MODNAME)
 public class PracticalPlasmids
 {
     Random random = new Random();
-    public static final String MODID = "plasmids";
-    public static final String VERSION = "0.0.1";
-    public static final String MODNAME = "Practical Plasmids";
-    public static final String CLIENTPROXY = "kiba.plasmids.proxy.ClientProxy";
-    public static final String COMMONPROXY = "kiba.plasmids.proxy.CommonProxy";
 
-    @SidedProxy(clientSide = PracticalPlasmids.CLIENTPROXY, serverSide = PracticalPlasmids.COMMONPROXY)
+
+    @SidedProxy(clientSide = Globals.CLIENTPROXY, serverSide = Globals.COMMONPROXY)
     public static CommonProxy proxy;
 
     @SuppressWarnings({

@@ -1,5 +1,6 @@
 package kiba.plasmids.plasmids;
 
+import kiba.plasmids.Globals;
 import kiba.plasmids.PlasmidsCapabilities;
 import kiba.plasmids.energy.IEveHolder;
 import kiba.plasmids.items.ItemBasePlasmid;
@@ -32,8 +33,8 @@ public class PlasmidSonicBoom extends ItemBasePlasmid {
 				Item item = stack.getItem();
 				if (item.equals(ModItems.plasmidSonicBoom)) {
 					IEveHolder holder = playerIn.getCapability(PlasmidsCapabilities.EVE_HOLDER, null);
-					if (holder.getStoredPower()>=10){
-						holder.takePower(10 , false);
+					if (holder.getStoredPower()>= Globals.EVE_USAGE_PER_SONIC_BOOM){
+						holder.takePower(Globals.EVE_USAGE_PER_SONIC_BOOM , false);
 					Vec3d lookVec = playerIn.getLookVec();
 					double multiplier = 2;
 					multiplier *= playerIn.getAIMoveSpeed() * 10;

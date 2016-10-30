@@ -39,7 +39,7 @@ public class RecipeRegistry {
 
 
         //PLASMID RECIPES
-        GameRegistry.addRecipe(new ItemStack(ModItems.plasmidIncinerate), new Object[]{"FCF", "EPE", "FCF", 'F', new ItemStack(ModItems.itemEveLighter), 'C', Items.FIRE_CHARGE, 'E', ModItems.itemEveShard, 'P', ModItems.itemPlasmidCore.setContainerItem(ModItems.itemPlasmidCore)});
+        GameRegistry.addRecipe(new ItemStack(ModItems.plasmidIncinerate), new Object[]{"FCF", "EPE", "FCF", 'F', new ItemStack(Items.FLINT_AND_STEEL), 'C', Items.FIRE_CHARGE, 'E', ModItems.itemEveShard, 'P', ModItems.itemPlasmidCore.setContainerItem(ModItems.itemPlasmidCore)});
         GameRegistry.addRecipe(new ItemStack(ModItems.plasmidCycloneTrap), new Object[]{"FGF","ECE","FPF", 'F',Items.FEATHER,'G',Items.GHAST_TEAR,'E',ModItems.itemEveShard,'P', Blocks.PISTON,'C',ModItems.itemPlasmidCore.setContainerItem(ModItems.itemPlasmidCore) });
         GameRegistry.addRecipe(new ItemStack(ModItems.plasmidOrionSun),new Object[]{"GTG","TCT","GTG",'G',Blocks.GLOWSTONE,'T',Blocks.TORCH,'C',ModItems.itemPlasmidCore.setContainerItem(ModItems.itemPlasmidCore)});
         GameRegistry.addRecipe(new ItemStack(ModItems.plasmidFreeze), new Object[]{"SPS","BCB","SPS",'S',Blocks.SNOW,'P',Blocks.PACKED_ICE,'B',Items.SNOWBALL,'C',ModItems.itemPlasmidCore.setContainerItem(ModItems.itemPlasmidCore)});

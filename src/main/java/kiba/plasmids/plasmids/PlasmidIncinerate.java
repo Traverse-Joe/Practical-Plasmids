@@ -1,5 +1,6 @@
 package kiba.plasmids.plasmids;
 
+import kiba.plasmids.Globals;
 import kiba.plasmids.PlasmidsCapabilities;
 import kiba.plasmids.energy.IEveHolder;
 import kiba.plasmids.energy.implementation.EveContainer;
@@ -28,9 +29,9 @@ public class PlasmidIncinerate extends ItemBasePlasmid {
     public boolean itemInteractionForEntity(ItemStack stack, EntityPlayer playerIn, EntityLivingBase target, EnumHand hand) {
         if (hand == EnumHand.OFF_HAND && playerIn.getItemStackFromSlot(EntityEquipmentSlot.MAINHAND) ==null) {
             IEveHolder holder = playerIn.getCapability(PlasmidsCapabilities.EVE_HOLDER, null);
-            if (holder.getStoredPower()>=10){
+            if (holder.getStoredPower()>=Globals.EVE_USAGE_PER_INCINERATE){
                 target.setFire(10);
-                holder.takePower(10 , false);
+                holder.takePower(Globals.EVE_USAGE_PER_INCINERATE, false);
             }
 
 

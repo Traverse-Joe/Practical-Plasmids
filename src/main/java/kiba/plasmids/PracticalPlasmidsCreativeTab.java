@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
 public class PracticalPlasmidsCreativeTab extends CreativeTabs {
 
 	public PracticalPlasmidsCreativeTab() {
-		super(PracticalPlasmids.MODID);
+		super(Globals.MODID);
 	}
 	
 	public void displayAllRelevantItems(List<ItemStack> items) {
@@ -33,6 +33,7 @@ public class PracticalPlasmidsCreativeTab extends CreativeTabs {
 		items.add(new ItemStack(ModItems.plasmidFreeze));
 		items.add(new ItemStack(ModItems.itemPlasmidCore));
 		items.add(new ItemStack(ModItems.itemEveSolution));
+		items.add(new ItemStack(ModItems.itemEveLighter));
 	}
 
 	@Override

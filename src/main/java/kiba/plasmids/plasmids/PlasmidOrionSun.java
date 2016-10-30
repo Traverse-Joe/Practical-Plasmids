@@ -1,5 +1,6 @@
 package kiba.plasmids.plasmids;
 
+import kiba.plasmids.Globals;
 import kiba.plasmids.PlasmidsCapabilities;
 import kiba.plasmids.energy.IEveHolder;
 import kiba.plasmids.items.ItemBasePlasmid;
@@ -23,10 +24,10 @@ public class PlasmidOrionSun extends ItemBasePlasmid {
 	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		if (hand == EnumHand.OFF_HAND && playerIn.getItemStackFromSlot(EntityEquipmentSlot.MAINHAND) == null) {
 			IEveHolder holder = playerIn.getCapability(PlasmidsCapabilities.EVE_HOLDER, null);
-			if (holder.getStoredPower() >= 10) {
+			if (holder.getStoredPower() >= Globals.EVE_USAGE_PER_ORION_SUN) {
 				if (Blocks.TORCH.canPlaceBlockOnSide(worldIn, pos, facing)) {
 					new ItemStack(Blocks.TORCH).onItemUse(playerIn, worldIn, pos, hand, facing, hitX, hitY, hitZ);
-					holder.takePower(10, false);
+					holder.takePower(Globals.EVE_USAGE_PER_ORION_SUN, false);
 				}
 			}
 		}
