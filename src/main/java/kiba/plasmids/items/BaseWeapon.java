@@ -1,5 +1,6 @@
 package kiba.plasmids.items;
 
+import kiba.plasmids.Globals;
 import kiba.plasmids.PracticalPlasmids;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.ItemSword;
@@ -12,7 +13,7 @@ public class BaseWeapon extends ItemSword {
     public BaseWeapon(ToolMaterial material, String name) {
         super(material);
         this.setRegistryName(name);
-        this.setUnlocalizedName(PracticalPlasmids.MODID + "." + name);
+        this.setUnlocalizedName(Globals.MODID + "." + name);
         GameRegistry.register(this);
 
 

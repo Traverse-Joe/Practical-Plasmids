@@ -1,5 +1,6 @@
 package kiba.plasmids.items;
 
+import kiba.plasmids.Globals;
 import kiba.plasmids.PracticalPlasmids;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.ItemFood;
@@ -12,7 +13,7 @@ public class BaseFoodItem extends ItemFood {
     public BaseFoodItem(String name, int amount, float saturation, boolean isWolfFood) {
         super(amount, saturation, isWolfFood);
         this.setRegistryName(name);
-        this.setUnlocalizedName(PracticalPlasmids.MODID + "." + name);
+        this.setUnlocalizedName(Globals.MODID + "." + name);
         GameRegistry.register(this);
     }
 

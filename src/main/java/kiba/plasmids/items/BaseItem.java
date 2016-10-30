@@ -1,5 +1,6 @@
 package kiba.plasmids.items;
 
+import kiba.plasmids.Globals;
 import kiba.plasmids.PracticalPlasmids;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
@@ -11,7 +12,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class BaseItem extends Item {
 	public BaseItem(String name) {
 		this.setRegistryName(name);
-		this.setUnlocalizedName(PracticalPlasmids.MODID + "." + name);
+		this.setUnlocalizedName(Globals.MODID + "." + name);
 		GameRegistry.register(this);
 	}
 
