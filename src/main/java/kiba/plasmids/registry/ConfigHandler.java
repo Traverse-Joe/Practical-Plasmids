@@ -1,7 +1,6 @@
 package kiba.plasmids.registry;
 
 import kiba.plasmids.Globals;
-import kiba.plasmids.PracticalPlasmids;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
@@ -20,7 +19,7 @@ public class ConfigHandler {
 
     @SubscribeEvent
     public void onConfigChange(ConfigChangedEvent.OnConfigChangedEvent e) {
-        if (e.getModID().equals (PracticalPlasmids.MODID)) {
+        if (e.getModID().equals (Globals.MODID)) {
             init();
         }
 
