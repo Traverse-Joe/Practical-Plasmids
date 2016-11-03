@@ -26,34 +26,31 @@ import java.util.Random;
 import static kiba.plasmids.Globals.MODID;
 
 @Mod(modid = MODID, version = Globals.VERSION, name = Globals.MODNAME)
-public class PracticalPlasmids
-{
-
+public class PracticalPlasmids {
 
 
     @SidedProxy(clientSide = Globals.CLIENTPROXY, serverSide = Globals.COMMONPROXY)
     public static CommonProxy proxy;
 
     @SuppressWarnings({
-			"unchecked", "rawtypes"
-	})
-	@EventHandler
-    public void preInit(FMLPreInitializationEvent event){
+            "unchecked", "rawtypes"
+    })
+    @EventHandler
+    public void preInit(FMLPreInitializationEvent event) {
 
         CapabilityManager.INSTANCE.register(IEveHolder.class, new PlasmidsCapabilities.CapabilityEveHolder(), EveContainer.class);
 
         MinecraftForge.EVENT_BUS.register(this);
 
 
-        proxy.registerRenderers(this);
         proxy.preInit(event);
 
     }
 
     @SubscribeEvent
     public void caps(AttachCapabilitiesEvent event) {
-        if(event.getObject() instanceof EntityPlayer) {
-            event.addCapability(new ResourceLocation(MODID,"eve"), new EveContainerProvider( EveContainer.create(10000,Long.MAX_VALUE,Long.MAX_VALUE)));
+        if (event.getObject() instanceof EntityPlayer) {
+            event.addCapability(new ResourceLocation(MODID, "eve"), new EveContainerProvider(EveContainer.create(10000, Long.MAX_VALUE, Long.MAX_VALUE)));
         }
     }
 
@@ -70,15 +67,15 @@ public class PracticalPlasmids
     }
 
 
-
-
     @EventHandler
-    public void init(FMLInitializationEvent event)
-    {
+    public void init(FMLInitializationEvent event) {
+        proxy.init(event);
 
     }
-    @EventHandler
-    public void postInit(FMLPostInitializationEvent event){
 
-}
+    @EventHandler
+    public void postInit(FMLPostInitializationEvent event) {
+        proxy.postInit(event);
+
+    }
 }

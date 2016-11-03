@@ -5,6 +5,7 @@ import kiba.plasmids.PracticalPlasmids;
 import kiba.plasmids.registry.ModItems;
 import kiba.plasmids.registry.RecipeRegistry;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
@@ -18,14 +19,16 @@ public class ClientProxy extends CommonProxy{
 
 		CREATIVE_TAB = new PracticalPlasmidsCreativeTab();
 
+        registerRenderers();
+
 	}
 	
     @Override
-    public void init(FMLPostInitializationEvent event){
+    public void init(FMLInitializationEvent event){
         super.init(event);
     }
     @Override
-    public void registerRenderers(PracticalPlasmids plasmids){
+    public void registerRenderers(){
         ModItems.initModels();
     }
 

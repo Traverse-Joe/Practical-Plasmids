@@ -6,6 +6,7 @@ import kiba.plasmids.registry.MobDrops;
 import kiba.plasmids.registry.ModItems;
 import kiba.plasmids.registry.RecipeRegistry;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
@@ -17,14 +18,14 @@ public class CommonProxy {
         ConfigHandler.init();
         MinecraftForge.EVENT_BUS.register(new MobDrops());
     }
-    public void init(FMLPostInitializationEvent event){
+    public void init(FMLInitializationEvent event){
 
 
     }
     public void postInit(FMLPostInitializationEvent event){
 
     }
-    public void registerRenderers(PracticalPlasmids plasmids){
+    public void registerRenderers(){
 
     }
 
