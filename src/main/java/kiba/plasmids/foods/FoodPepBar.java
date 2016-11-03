@@ -11,6 +11,7 @@ public class FoodPepBar extends BaseFoodItem {
     public FoodPepBar() {
         super("pep_bar", 1, 1.0F, false);
         this.setAlwaysEdible();
+        
     }
 
     @Override

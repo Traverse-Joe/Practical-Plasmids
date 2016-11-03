@@ -28,7 +28,7 @@ import static kiba.plasmids.Globals.MODID;
 @Mod(modid = MODID, version = Globals.VERSION, name = Globals.MODNAME)
 public class PracticalPlasmids
 {
-    Random random = new Random();
+
 
 
     @SidedProxy(clientSide = Globals.CLIENTPROXY, serverSide = Globals.COMMONPROXY)
@@ -44,7 +44,7 @@ public class PracticalPlasmids
 
         MinecraftForge.EVENT_BUS.register(this);
 
-        ModItems.init();
+
         proxy.registerRenderers(this);
         proxy.preInit(event);
 
@@ -70,13 +70,6 @@ public class PracticalPlasmids
     }
 
 
-    @SubscribeEvent
-    public void playerKilledEntity(LivingDropsEvent event) {
-        if (event.getEntity() instanceof EntityMob) {
-           if(random.nextInt(5) == 0)
-            event.getEntityLiving().dropItem(ModItems.itemEveShard, 2);
-        }
-    }
 
 
     @EventHandler
