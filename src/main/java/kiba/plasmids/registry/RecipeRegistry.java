@@ -9,6 +9,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 
 public class RecipeRegistry {
     public static void register(FMLPreInitializationEvent event) {
@@ -50,6 +51,7 @@ public class RecipeRegistry {
         GameRegistry.addShapelessRecipe(new ItemStack(Blocks.SNOW),new Object[]{Items.WATER_BUCKET.setContainerItem(Items.BUCKET),ModItems.plasmidFreeze.setContainerItem(ModItems.plasmidFreeze)});
         GameRegistry.addShapelessRecipe(new ItemStack(Blocks.NETHER_BRICK), new Object[]{Blocks.BRICK_BLOCK,ModItems.plasmidIncinerate.setContainerItem(ModItems.plasmidIncinerate)});
         GameRegistry.addShapelessRecipe(new ItemStack(Blocks.BRICK_BLOCK), new Object[]{Blocks.NETHER_BRICK,ModItems.plasmidFreeze.setContainerItem(ModItems.plasmidFreeze)});
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Blocks.CHEST,4),"LLL","L L","LLL",'L',"logWood"));
 
 
     }
