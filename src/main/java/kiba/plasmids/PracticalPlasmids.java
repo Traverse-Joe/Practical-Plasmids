@@ -25,7 +25,7 @@ import java.util.Random;
 
 import static kiba.plasmids.Globals.MODID;
 
-@Mod(modid = MODID, version = Globals.VERSION, name = Globals.MODNAME)
+@Mod(modid = Globals.MODID, version = Globals.VERSION, name = Globals.MODNAME)
 public class PracticalPlasmids {
 
 

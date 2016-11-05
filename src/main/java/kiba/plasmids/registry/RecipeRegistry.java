@@ -35,7 +35,7 @@ public class RecipeRegistry {
         GameRegistry.addShapelessRecipe(new ItemStack(ModItems.itemBeer,2), new Object[]{Items.ROTTEN_FLESH,ModItems.itemEveSolution,Items.WHEAT,});
         GameRegistry.addShapelessRecipe(new ItemStack(ModItems.itemCoffee), new Object[]{new ItemStack(Items.DYE,0,3),Items.SUGAR,ModItems.itemEveSolution});
         GameRegistry.addShapelessRecipe(new ItemStack(ModItems.itemCigarette), new Object[]{ModItems.itemEveSolution,Items.PAPER,Items.GUNPOWDER,new ItemStack(ModItems.itemEveLighter,1, OreDictionary.WILDCARD_VALUE)});
-
+        GameRegistry.addShapelessRecipe(new ItemStack(ModItems.itemFoodVial,4), new Object[]{ModItems.itemBurntFood,Items.POTIONITEM,Items.SUGAR,ModItems.itemSyringe});
 
 
 
@@ -52,6 +52,16 @@ public class RecipeRegistry {
         GameRegistry.addShapelessRecipe(new ItemStack(Blocks.NETHER_BRICK), new Object[]{Blocks.BRICK_BLOCK,ModItems.plasmidIncinerate.setContainerItem(ModItems.plasmidIncinerate)});
         GameRegistry.addShapelessRecipe(new ItemStack(Blocks.BRICK_BLOCK), new Object[]{Blocks.NETHER_BRICK,ModItems.plasmidFreeze.setContainerItem(ModItems.plasmidFreeze)});
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Blocks.CHEST,4),"LLL","L L","LLL",'L',"logWood"));
+
+        //SMELTING RECIPES
+        GameRegistry.addSmelting(Items.COOKED_BEEF, new ItemStack(ModItems.itemBurntFood),0.1F);
+        GameRegistry.addSmelting(Items.COOKED_CHICKEN, new ItemStack(ModItems.itemBurntFood),0.1F);
+        GameRegistry.addSmelting(Items.COOKED_FISH, new ItemStack(ModItems.itemBurntFood),0.1F);
+        GameRegistry.addSmelting(Items.COOKED_MUTTON, new ItemStack(ModItems.itemBurntFood),0.1F);
+        GameRegistry.addSmelting(Items.COOKED_PORKCHOP, new ItemStack(ModItems.itemBurntFood),0.1F);
+        GameRegistry.addSmelting(Items.COOKED_RABBIT, new ItemStack(ModItems.itemBurntFood),0.1F);
+        GameRegistry.addSmelting(Items.BAKED_POTATO, new ItemStack(ModItems.itemBurntFood),0.1F);
+
 
 
     }

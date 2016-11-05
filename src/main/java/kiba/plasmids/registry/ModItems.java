@@ -1,6 +1,7 @@
 package kiba.plasmids.registry;
 
 import kiba.plasmids.foods.FoodPepBar;
+import kiba.plasmids.foods.ItemBurntFood;
 import kiba.plasmids.items.*;
 import kiba.plasmids.plasmids.*;
 import net.minecraftforge.fml.relauncher.Side;
@@ -27,6 +28,8 @@ public class ModItems {
     public static ItemPlasmidCore itemPlasmidCore;
     public static ItemEveSolution itemEveSolution;
     public static ItemEveLighter itemEveLighter;
+    public static ItemFoodVial itemFoodVial;
+    public static ItemBurntFood itemBurntFood;
 
     public static void init() {
         //Items
@@ -58,6 +61,8 @@ public class ModItems {
         itemBeer = new ItemBeer();
         itemCoffee = new ItemCoffee();
         itemCigarette = new ItemCigarette();
+        itemFoodVial = new ItemFoodVial();
+        itemBurntFood = new ItemBurntFood();
 
 
     }
@@ -84,6 +89,8 @@ public class ModItems {
         itemPlasmidCore.initModel();
         itemEveSolution.initModel();
         itemEveLighter.initModel();
+        itemFoodVial.initModel();
+        itemBurntFood.initModel();
 
     }
 }

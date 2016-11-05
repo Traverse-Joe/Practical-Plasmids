@@ -34,6 +34,7 @@ public class PracticalPlasmidsCreativeTab extends CreativeTabs {
 		items.add(new ItemStack(ModItems.itemPlasmidCore));
 		items.add(new ItemStack(ModItems.itemEveSolution));
 		items.add(new ItemStack(ModItems.itemEveLighter));
+		items.add(new ItemStack(ModItems.itemFoodVial));
 	}
 
 	@Override
