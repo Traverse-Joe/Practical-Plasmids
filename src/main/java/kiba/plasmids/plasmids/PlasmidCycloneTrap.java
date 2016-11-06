@@ -1,7 +1,7 @@
 package kiba.plasmids.plasmids;
 
 import kiba.plasmids.PlasmidsCapabilities;
-import kiba.plasmids.energy.IEveHolder;
+import kiba.plasmids.api.IEveHolder;
 import kiba.plasmids.entities.EntityFreeze;
 import kiba.plasmids.items.ItemBasePlasmid;
 import net.minecraft.entity.player.EntityPlayer;

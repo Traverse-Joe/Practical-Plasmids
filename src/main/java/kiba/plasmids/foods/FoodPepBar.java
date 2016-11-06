@@ -1,7 +1,7 @@
 package kiba.plasmids.foods;
 
 import kiba.plasmids.PlasmidsCapabilities;
-import kiba.plasmids.energy.IEveHolder;
+import kiba.plasmids.api.IEveHolder;
 import kiba.plasmids.items.BaseFoodItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

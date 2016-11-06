@@ -1,6 +1,6 @@
 package kiba.plasmids;
 
-import kiba.plasmids.energy.IEveHolder;
+import kiba.plasmids.api.IEveHolder;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;

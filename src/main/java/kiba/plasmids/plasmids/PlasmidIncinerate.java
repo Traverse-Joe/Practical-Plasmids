@@ -2,7 +2,7 @@ package kiba.plasmids.plasmids;
 
 import kiba.plasmids.Globals;
 import kiba.plasmids.PlasmidsCapabilities;
-import kiba.plasmids.energy.IEveHolder;
+import kiba.plasmids.api.IEveHolder;
 import kiba.plasmids.energy.implementation.EveContainer;
 import kiba.plasmids.energy.implementation.EveContainerProvider;
 import kiba.plasmids.items.ItemBasePlasmid;
@@ -15,7 +15,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
-import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 
 public class PlasmidIncinerate extends ItemBasePlasmid {

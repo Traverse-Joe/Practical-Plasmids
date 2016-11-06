@@ -1,11 +1,10 @@
 package kiba.plasmids.items;
 
 import kiba.plasmids.PlasmidsCapabilities;
-import kiba.plasmids.energy.IEveHolder;
+import kiba.plasmids.api.IEveHolder;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
-import net.minecraft.item.ItemFlintAndSteel;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;

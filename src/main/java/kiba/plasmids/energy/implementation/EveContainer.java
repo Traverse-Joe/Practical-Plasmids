@@ -1,6 +1,6 @@
 package kiba.plasmids.energy.implementation;
 
-import kiba.plasmids.energy.IEveHolder;
+import kiba.plasmids.api.IEveHolder;
 import net.minecraft.nbt.NBTTagCompound;
 
 public class EveContainer implements IEveHolder {

@@ -1,7 +1,7 @@
 package kiba.plasmids.items;
 
 import kiba.plasmids.PlasmidsCapabilities;
-import kiba.plasmids.energy.IEveHolder;
+import kiba.plasmids.api.IEveHolder;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;

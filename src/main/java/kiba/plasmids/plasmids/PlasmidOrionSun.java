@@ -2,7 +2,7 @@ package kiba.plasmids.plasmids;
 
 import kiba.plasmids.Globals;
 import kiba.plasmids.PlasmidsCapabilities;
-import kiba.plasmids.energy.IEveHolder;
+import kiba.plasmids.api.IEveHolder;
 import kiba.plasmids.items.ItemBasePlasmid;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
