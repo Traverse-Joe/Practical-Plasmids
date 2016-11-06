@@ -3,7 +3,7 @@ package kiba.plasmids.items;
 public class ItemSyringe extends BaseItem {
     public ItemSyringe(){
         super("syringe");
-        this.setMaxStackSize(1);
+        this.setMaxStackSize(16);
 
 
     }

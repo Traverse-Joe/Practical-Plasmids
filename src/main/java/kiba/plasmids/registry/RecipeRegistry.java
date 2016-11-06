@@ -53,6 +53,7 @@ public class RecipeRegistry {
         GameRegistry.addShapelessRecipe(new ItemStack(Blocks.BRICK_BLOCK), new Object[]{Blocks.NETHER_BRICK,ModItems.plasmidFreeze.setContainerItem(ModItems.plasmidFreeze)});
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Blocks.CHEST,4),"LLL","L L","LLL",'L',"logWood"));
 
+
         //SMELTING RECIPES
         GameRegistry.addSmelting(Items.COOKED_BEEF, new ItemStack(ModItems.itemBurntFood),0.1F);
         GameRegistry.addSmelting(Items.COOKED_CHICKEN, new ItemStack(ModItems.itemBurntFood),0.1F);
@@ -62,6 +63,8 @@ public class RecipeRegistry {
         GameRegistry.addSmelting(Items.COOKED_RABBIT, new ItemStack(ModItems.itemBurntFood),0.1F);
         GameRegistry.addSmelting(Items.BAKED_POTATO, new ItemStack(ModItems.itemBurntFood),0.1F);
 
+        //FUEL HANDLERS
+        GameRegistry.registerFuelHandler(ModItems.itemBurntFood);
 
 
     }
