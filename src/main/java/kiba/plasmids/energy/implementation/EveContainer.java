@@ -33,7 +33,7 @@ public class EveContainer implements IEveHolder {
     }
 
     private EveContainer(NBTTagCompound dataTag) {
-
+        this();
         this.deserializeNBT(dataTag);
     }
 
@@ -76,7 +76,6 @@ public class EveContainer implements IEveHolder {
 
         final NBTTagCompound dataTag = new NBTTagCompound();
         dataTag.setLong("EvePower", this.stored);
-        dataTag.setLong("EveCapacity", this.capacity);
         dataTag.setLong("EveInput", this.inputRate);
         dataTag.setLong("EveOutput", this.outputRate);
 
@@ -87,9 +86,6 @@ public class EveContainer implements IEveHolder {
     public void deserializeNBT(NBTTagCompound nbt) {
 
         this.stored = nbt.getLong("EvePower");
-
-        if (nbt.hasKey("EveCapacity"))
-            this.capacity = nbt.getLong("EveCapacity");
 
         if (nbt.hasKey("EveInput"))
             this.inputRate = nbt.getLong("EveInput");
