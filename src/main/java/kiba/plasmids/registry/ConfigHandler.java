@@ -16,6 +16,7 @@ public class ConfigHandler {
     public static long eveUsagePerCycloneTrap;
     public static long eveUsagePerOrionSun;
     public static long eveUsagePerSonicBoom;
+    public static long eveMaxLevel;
 
     @SubscribeEvent
     public void onConfigChange(ConfigChangedEvent.OnConfigChangedEvent e) {
@@ -47,6 +48,9 @@ public class ConfigHandler {
 
         eveUsagePerSonicBoom = CONFIG.getInt("EveUsagePerSonicBoom", DEF_CAT, 10,1,10000,"How much EVE to consume per use of the Sonic Boom Plasmid");
         Globals.EVE_USAGE_PER_SONIC_BOOM = (long) eveUsagePerSonicBoom;
+
+        eveMaxLevel = CONFIG.getInt("EveMaxLevel", DEF_CAT, 10000, 1 , 1000000, "The MAX amount of EVE a player can have on them");
+        Globals.EVE_MAX_LEVEL =(long) eveMaxLevel;
 
 
 
