@@ -28,6 +28,16 @@ sourceCompatibility = targetCompatibility = "1.8" // Need this here so eclipse t
 compileJava {
     sourceCompatibility = targetCompatibility = "1.8"
 }
+repositories {
+    maven {
+        name = "ChickenBones Repo"
+        url = "http://chickenbones.net/maven/"
+    }
+}
+
+dependencies {
+    compile "codechicken:CodeChickenLib:1.10.2-2.4.3.143:deobf"
+}
 
 minecraft {
     version = "1.10.2-12.18.2.2122"
@@ -85,3 +95,4 @@ processResources
         exclude 'mcmod.info'
     }
 }
+
