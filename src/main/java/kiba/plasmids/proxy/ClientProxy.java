@@ -2,9 +2,11 @@ package kiba.plasmids.proxy;
 
 import kiba.plasmids.PracticalPlasmidsCreativeTab;
 import kiba.plasmids.PracticalPlasmids;
+import kiba.plasmids.handlers.PlasmidsEventHandler;
 import kiba.plasmids.registry.ModItems;
 import kiba.plasmids.registry.RecipeRegistry;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -20,6 +22,7 @@ public class ClientProxy extends CommonProxy{
 		CREATIVE_TAB = new PracticalPlasmidsCreativeTab();
 
         registerRenderers();
+        MinecraftForge.EVENT_BUS.register(new PlasmidsEventHandler());
 
 	}
 	
