@@ -10,42 +10,43 @@ import net.minecraft.util.*;
 import net.minecraft.world.World;
 
 public class ItemEveHypo extends BaseItem {
-    public ItemEveHypo() {
-        super("eve_Hypo");
-        this.setMaxStackSize(16);
+	public ItemEveHypo() {
+		super("eve_Hypo");
+		this.setMaxStackSize(16);
 
+	}
 
-    }
-    @Override
-    public EnumAction getItemUseAction(ItemStack stack) {
-        return EnumAction.BOW;
-    }
+	@Override
+	public EnumAction getItemUseAction(ItemStack stack) {
+		return EnumAction.BOW;
+	}
 
-    @Override
-    public int getMaxItemUseDuration (ItemStack stack) {
+	@Override
+	public int getMaxItemUseDuration(ItemStack stack) {
 
-        return 30;
-    }
+		return 30;
+	}
 
-    @Override
-    public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
-       playerIn.setActiveHand(hand);
-        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemStackIn);
-    }
-    @Override
-    public ItemStack onItemUseFinish (ItemStack stack, World worldIn, EntityLivingBase entityLiving) {
+	@Override
+	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
+		playerIn.setActiveHand(hand);
+		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemStackIn);
+	}
 
-        if (entityLiving instanceof EntityPlayer) {
-            EntityPlayer player = (EntityPlayer)entityLiving;
-            IEveHolder holder = player.getCapability(PlasmidsCapabilities.EVE_HOLDER, null);
-            holder.givePower(100, false);
-            player.attackEntityFrom(DamageSource.generic, 0.1F);
-            --stack.stackSize;
+	@Override
+	public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving) {
 
-        }
+		if (entityLiving instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer) entityLiving;
+			IEveHolder holder = player.getCapability(PlasmidsCapabilities.EVE_HOLDER, null);
+			holder.givePower(100, false);
+			player.attackEntityFrom(DamageSource.generic, 0.1F);
+			--stack.stackSize;
 
-        return stack;
-    }
+		}
+
+		return stack;
+	}
 
 }
 /*
@@ -54,4 +55,3 @@ public class ItemEveHypo extends BaseItem {
         playerIn.attackEntityFrom(DamageSource.generic, 0.1F);
         --itemStackIn.stackSize;
  */
-

@@ -9,25 +9,22 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
 public class ItemMedKit extends BaseItem {
-    public ItemMedKit() {
-        super("med_kit");
-        this.setMaxDamage(10);
+	public ItemMedKit() {
+		super("med_kit");
+		this.setMaxDamage(10);
 
-    }
+	}
 
+	@Override
+	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
+		if (itemStackIn.getItemDamage() == 10) {
+			playerIn.addPotionEffect(new PotionEffect(MobEffects.INSTANT_HEALTH, 1, 3, false, false));
+			--itemStackIn.stackSize;
+		}
+		else
+			playerIn.addPotionEffect(new PotionEffect(MobEffects.INSTANT_HEALTH, 1, 3, false, false));
+		itemStackIn.damageItem(+1, playerIn);
 
-    @Override
-    public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
-        if (itemStackIn.getItemDamage() == 10) {
-            playerIn.addPotionEffect(new PotionEffect(MobEffects.INSTANT_HEALTH, 1, 3, false, false));
-            --itemStackIn.stackSize;
-        } else
-            playerIn.addPotionEffect(new PotionEffect(MobEffects.INSTANT_HEALTH, 1, 3, false, false));
-        itemStackIn.damageItem(+1, playerIn);
-
-        return super.onItemRightClick(itemStackIn, worldIn, playerIn, hand);
-    }
+		return super.onItemRightClick(itemStackIn, worldIn, playerIn, hand);
+	}
 }
-
-
-

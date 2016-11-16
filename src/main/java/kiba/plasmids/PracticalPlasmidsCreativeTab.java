@@ -12,7 +12,7 @@ public class PracticalPlasmidsCreativeTab extends CreativeTabs {
 	public PracticalPlasmidsCreativeTab() {
 		super(Globals.MODID);
 	}
-	
+
 	public void displayAllRelevantItems(List<ItemStack> items) {
 		items.add(new ItemStack(ModItems.creativeItemEve));
 		items.add(new ItemStack(ModItems.foodPepBar));

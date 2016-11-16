@@ -19,7 +19,7 @@ public class CreativeItemEve extends BaseItem {
 	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
 		if (!worldIn.isRemote) {
 			IEveHolder holder = playerIn.getCapability(PlasmidsCapabilities.EVE_HOLDER, null);
-			while(holder.getStoredPower()<1000L){
+			while (holder.getStoredPower() < 1000L) {
 				holder.givePower(10000L, false);
 			}
 

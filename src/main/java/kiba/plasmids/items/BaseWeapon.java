@@ -10,17 +10,16 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BaseWeapon extends ItemSword {
-    public BaseWeapon(ToolMaterial material, String name) {
-        super(material);
-        this.setRegistryName(name);
-        this.setUnlocalizedName(Globals.MODID + "." + name);
-        GameRegistry.register(this);
+	public BaseWeapon(ToolMaterial material, String name) {
+		super(material);
+		this.setRegistryName(name);
+		this.setUnlocalizedName(Globals.MODID + "." + name);
+		GameRegistry.register(this);
 
+	}
 
-    }
-
-    @SideOnly(Side.CLIENT)
-    public void initModel() {
-        ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
-    }
+	@SideOnly(Side.CLIENT)
+	public void initModel() {
+		ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
+	}
 }

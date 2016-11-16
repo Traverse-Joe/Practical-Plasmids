@@ -13,43 +13,42 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
 public class ItemCigarette extends BaseItem {
-    public ItemCigarette() {
-        super("item_Cigarette");
+	public ItemCigarette() {
+		super("item_Cigarette");
 
-        this.setMaxDamage(3);
-        this.setMaxStackSize(1);
-    }
-    @Override
-    public EnumAction getItemUseAction(ItemStack stack) {
-        return EnumAction.BOW;
+		this.setMaxDamage(3);
+		this.setMaxStackSize(1);
+	}
 
-    }
+	@Override
+	public EnumAction getItemUseAction(ItemStack stack) {
+		return EnumAction.BOW;
 
-    @Override
-    public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
-        playerIn.setActiveHand(hand);
+	}
 
-        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemStackIn);
-    }
+	@Override
+	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
+		playerIn.setActiveHand(hand);
 
-    @Override
-    public int getMaxItemUseDuration(ItemStack stack) {
-        return 60;
-    }
+		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemStackIn);
+	}
 
-    @Override
-    public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving) {
+	@Override
+	public int getMaxItemUseDuration(ItemStack stack) {
+		return 60;
+	}
 
-        if (entityLiving instanceof EntityPlayer) {
-            EntityPlayer player = (EntityPlayer) entityLiving;
-            IEveHolder holder = player.getCapability(PlasmidsCapabilities.EVE_HOLDER, null);
-            holder.givePower(10, false);
-            player.attackEntityFrom(DamageSource.generic, 2.0F);
-            stack.damageItem(+1,player);
-        }
+	@Override
+	public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving) {
 
-        return stack;
-    }
+		if (entityLiving instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer) entityLiving;
+			IEveHolder holder = player.getCapability(PlasmidsCapabilities.EVE_HOLDER, null);
+			holder.givePower(10, false);
+			player.attackEntityFrom(DamageSource.generic, 2.0F);
+			stack.damageItem(+1, player);
+		}
+
+		return stack;
+	}
 }
-
-

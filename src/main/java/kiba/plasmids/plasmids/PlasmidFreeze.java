@@ -16,47 +16,46 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
 public class PlasmidFreeze extends ItemBasePlasmid {
-    public PlasmidFreeze() {
-        super("plasmid_Freeze");
-    }
+	public PlasmidFreeze() {
+		super("plasmid_Freeze");
+	}
 
-    @Override
-    public EnumAction getItemUseAction(ItemStack stack) {
-        return EnumAction.BOW;
+	@Override
+	public EnumAction getItemUseAction(ItemStack stack) {
+		return EnumAction.BOW;
 
-    }
+	}
 
-    @Override
-    public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
-        playerIn.setActiveHand(hand);
-        if (hand == EnumHand.OFF_HAND && playerIn.getItemStackFromSlot(EntityEquipmentSlot.MAINHAND) == null) {
+	@Override
+	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
+		playerIn.setActiveHand(hand);
+		if (hand == EnumHand.OFF_HAND && playerIn.getItemStackFromSlot(EntityEquipmentSlot.MAINHAND) == null) {
 
-        }
-        return ActionResult.newResult(EnumActionResult.SUCCESS, itemStackIn);
-    }
+		}
+		return ActionResult.newResult(EnumActionResult.SUCCESS, itemStackIn);
+	}
 
-    @Override
-    public int getMaxItemUseDuration(ItemStack stack) {
-        return 30;
-    }
+	@Override
+	public int getMaxItemUseDuration(ItemStack stack) {
+		return 30;
+	}
 
-    @Override
-    public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving) {
+	@Override
+	public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving) {
 
-        if (entityLiving instanceof EntityPlayer) {
-            EntityPlayer player = (EntityPlayer) entityLiving;
-            IEveHolder holder = player.getCapability(PlasmidsCapabilities.EVE_HOLDER, null);
-            if (holder.getStoredPower() >= Globals.EVE_USAGE_PER_FREEZE) {
-                if (!player.worldObj.isRemote) {
-                    EntityFreeze freeze = new EntityFreeze(player.worldObj, player);
-                    freeze.setHeadingFromThrower(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
-                    worldIn.spawnEntityInWorld(freeze);
-                    holder.takePower(Globals.EVE_USAGE_PER_FREEZE, false);
-                }
-            }
-        }
+		if (entityLiving instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer) entityLiving;
+			IEveHolder holder = player.getCapability(PlasmidsCapabilities.EVE_HOLDER, null);
+			if (holder.getStoredPower() >= Globals.EVE_USAGE_PER_FREEZE) {
+				if (!player.worldObj.isRemote) {
+					EntityFreeze freeze = new EntityFreeze(player.worldObj, player);
+					freeze.setHeadingFromThrower(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
+					worldIn.spawnEntityInWorld(freeze);
+					holder.takePower(Globals.EVE_USAGE_PER_FREEZE, false);
+				}
+			}
+		}
 
-        return super.onItemUseFinish(stack, worldIn, entityLiving);
-    }
+		return super.onItemUseFinish(stack, worldIn, entityLiving);
+	}
 }
-

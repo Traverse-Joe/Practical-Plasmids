@@ -8,38 +8,37 @@ import net.minecraftforge.common.capabilities.ICapabilitySerializable;
 
 public class EveContainerProvider implements ICapabilitySerializable<NBTTagCompound> {
 
-    private final EveContainer container;
+	private final EveContainer container;
 
-    public EveContainerProvider(EveContainer container) {
+	public EveContainerProvider(EveContainer container) {
 
-        this.container = container;
-    }
+		this.container = container;
+	}
 
-    @Override
-    public boolean hasCapability(Capability<?> capability, EnumFacing facing) {
+	@Override
+	public boolean hasCapability(Capability<?> capability, EnumFacing facing) {
 
-        return capability == PlasmidsCapabilities.EVE_HOLDER;
-    }
+		return capability == PlasmidsCapabilities.EVE_HOLDER;
+	}
 
-    @Override
-    @SuppressWarnings("unchecked")
-    public <T> T getCapability(Capability<T> capability, EnumFacing facing) {
+	@Override
+	@SuppressWarnings("unchecked")
+	public <T> T getCapability(Capability<T> capability, EnumFacing facing) {
 
-        if (capability == PlasmidsCapabilities.EVE_HOLDER)
-            return (T) this.container;
+		if (capability == PlasmidsCapabilities.EVE_HOLDER) return (T) this.container;
 
-        return null;
-    }
+		return null;
+	}
 
-    @Override
-    public NBTTagCompound serializeNBT() {
+	@Override
+	public NBTTagCompound serializeNBT() {
 
-        return this.container.serializeNBT();
-    }
+		return this.container.serializeNBT();
+	}
 
-    @Override
-    public void deserializeNBT(NBTTagCompound nbt) {
+	@Override
+	public void deserializeNBT(NBTTagCompound nbt) {
 
-        this.container.deserializeNBT(nbt);
-    }
+		this.container.deserializeNBT(nbt);
+	}
 }

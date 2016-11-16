@@ -21,57 +21,52 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import static kiba.plasmids.Globals.MODID;
 
-@Mod(modid = Globals.MODID, version = Globals.VERSION, name = Globals.MODNAME,dependencies = "required-after:CodeChickenLib@[" + CodeChickenLib.version + ",)")
+@Mod(modid = Globals.MODID, version = Globals.VERSION, name = Globals.MODNAME, dependencies = "required-after:CodeChickenLib@[" + CodeChickenLib.version + ",)")
 public class PracticalPlasmids {
 
+	@SidedProxy(clientSide = Globals.CLIENTPROXY, serverSide = Globals.COMMONPROXY)
+	public static CommonProxy proxy;
 
-    @SidedProxy(clientSide = Globals.CLIENTPROXY, serverSide = Globals.COMMONPROXY)
-    public static CommonProxy proxy;
+	@SuppressWarnings({
+			"unchecked", "rawtypes"
+	})
+	@EventHandler
+	public void preInit(FMLPreInitializationEvent event) {
 
-    @SuppressWarnings({
-            "unchecked", "rawtypes"
-    })
-    @EventHandler
-    public void preInit(FMLPreInitializationEvent event) {
+		CapabilityManager.INSTANCE.register(IEveHolder.class, new PlasmidsCapabilities.CapabilityEveHolder(), EveContainer.class);
 
-        CapabilityManager.INSTANCE.register(IEveHolder.class, new PlasmidsCapabilities.CapabilityEveHolder(), EveContainer.class);
+		MinecraftForge.EVENT_BUS.register(this);
 
-        MinecraftForge.EVENT_BUS.register(this);
+		proxy.preInit(event);
 
+	}
 
-        proxy.preInit(event);
+	@SubscribeEvent
+	public void caps(AttachCapabilitiesEvent event) {
+		if (event.getObject() instanceof EntityPlayer) {
+			event.addCapability(new ResourceLocation(Globals.MODID, "eve"), new EveContainerProvider(EveContainer.create(Globals.EVE_MAX_LEVEL, Long.MAX_VALUE, Long.MAX_VALUE)));
+		}
+	}
 
-    }
+	@SubscribeEvent
+	public void clone(PlayerEvent.Clone event) {
+		if (event.isWasDeath()) {
+			EntityPlayer dead = event.getOriginal();
+			EntityPlayer alive = event.getEntityPlayer();
 
-    @SubscribeEvent
-    public void caps(AttachCapabilitiesEvent event) {
-        if (event.getObject() instanceof EntityPlayer) {
-            event.addCapability(new ResourceLocation(Globals.MODID, "eve"), new EveContainerProvider(EveContainer.create(Globals.EVE_MAX_LEVEL, Long.MAX_VALUE, Long.MAX_VALUE)));
-        }
-    }
+			if (dead.hasCapability(PlasmidsCapabilities.EVE_HOLDER, null) && alive.hasCapability(PlasmidsCapabilities.EVE_HOLDER, null)) alive.getCapability(PlasmidsCapabilities.EVE_HOLDER, null).deserializeNBT(dead.getCapability(PlasmidsCapabilities.EVE_HOLDER, null).serializeNBT());
+		}
+	}
 
+	@EventHandler
+	public void init(FMLInitializationEvent event) {
+		proxy.init(event);
 
-    @SubscribeEvent
-    public void clone(PlayerEvent.Clone event) {
-        if (event.isWasDeath()) {
-            EntityPlayer dead = event.getOriginal();
-            EntityPlayer alive = event.getEntityPlayer();
+	}
 
-            if (dead.hasCapability(PlasmidsCapabilities.EVE_HOLDER, null) && alive.hasCapability(PlasmidsCapabilities.EVE_HOLDER, null))
-                alive.getCapability(PlasmidsCapabilities.EVE_HOLDER, null).deserializeNBT(dead.getCapability(PlasmidsCapabilities.EVE_HOLDER, null).serializeNBT());
-        }
-    }
+	@EventHandler
+	public void postInit(FMLPostInitializationEvent event) {
+		proxy.postInit(event);
 
-
-    @EventHandler
-    public void init(FMLInitializationEvent event) {
-        proxy.init(event);
-
-    }
-
-    @EventHandler
-    public void postInit(FMLPostInitializationEvent event) {
-        proxy.postInit(event);
-
-    }
+	}
 }

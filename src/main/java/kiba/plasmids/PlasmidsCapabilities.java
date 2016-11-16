@@ -10,19 +10,18 @@ import net.minecraftforge.common.capabilities.CapabilityInject;
 
 public class PlasmidsCapabilities {
 
-    @CapabilityInject(IEveHolder.class)
-    public static Capability<IEveHolder> EVE_HOLDER = null;
+	@CapabilityInject(IEveHolder.class)
+	public static Capability<IEveHolder> EVE_HOLDER = null;
 
+	public static class CapabilityEveHolder<T extends IEveHolder> implements IStorage<IEveHolder> {
+		@Override
+		public NBTBase writeNBT(Capability<IEveHolder> capability, IEveHolder instance, EnumFacing side) {
+			return instance.serializeNBT();
+		}
 
-    public static class CapabilityEveHolder<T extends IEveHolder> implements IStorage<IEveHolder> {
-        @Override
-        public NBTBase writeNBT(Capability<IEveHolder> capability, IEveHolder instance, EnumFacing side) {
-            return instance.serializeNBT();
-        }
-
-        @Override
-        public void readNBT(Capability<IEveHolder> capability, IEveHolder instance, EnumFacing side, NBTBase nbt) {
-            instance.deserializeNBT((NBTTagCompound) nbt);
-        }
-    }
+		@Override
+		public void readNBT(Capability<IEveHolder> capability, IEveHolder instance, EnumFacing side, NBTBase nbt) {
+			instance.deserializeNBT((NBTTagCompound) nbt);
+		}
+	}
 }

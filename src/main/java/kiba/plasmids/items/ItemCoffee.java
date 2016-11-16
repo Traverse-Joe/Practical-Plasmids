@@ -12,39 +12,38 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
 public class ItemCoffee extends BaseItem {
-    public ItemCoffee() {
-        super("item_Coffee");
+	public ItemCoffee() {
+		super("item_Coffee");
 
-    }
-    @Override
-    public EnumAction getItemUseAction(ItemStack stack) {
-        return EnumAction.DRINK;
+	}
 
-    }
+	@Override
+	public EnumAction getItemUseAction(ItemStack stack) {
+		return EnumAction.DRINK;
 
-    @Override
-    public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
-        playerIn.setActiveHand(hand);
-        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemStackIn);
-    }
+	}
 
-    @Override
-    public int getMaxItemUseDuration(ItemStack stack) {
-        return 10;
-    }
+	@Override
+	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
+		playerIn.setActiveHand(hand);
+		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemStackIn);
+	}
 
-    @Override
-    public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving) {
+	@Override
+	public int getMaxItemUseDuration(ItemStack stack) {
+		return 10;
+	}
 
-        if (entityLiving instanceof EntityPlayer) {
-            EntityPlayer player = (EntityPlayer) entityLiving;
-            IEveHolder holder = player.getCapability(PlasmidsCapabilities.EVE_HOLDER, null);
-            holder.givePower(5, false);
-            stack.stackSize--;
-        }
+	@Override
+	public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving) {
 
-        return stack;
-    }
+		if (entityLiving instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer) entityLiving;
+			IEveHolder holder = player.getCapability(PlasmidsCapabilities.EVE_HOLDER, null);
+			holder.givePower(5, false);
+			stack.stackSize--;
+		}
+
+		return stack;
+	}
 }
-
-

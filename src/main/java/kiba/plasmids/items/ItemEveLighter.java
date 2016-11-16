@@ -14,51 +14,49 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class ItemEveLighter extends BaseItem {
-    public ItemEveLighter() {
-        super("eve_Lighter");
-        this.setMaxDamage(64);
-        this.setMaxStackSize(1);
-        this.setNoRepair();
+	public ItemEveLighter() {
+		super("eve_Lighter");
+		this.setMaxDamage(64);
+		this.setMaxStackSize(1);
+		this.setNoRepair();
 
+	}
 
-    }
+	@Override
+	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 
-    @Override
-    public EnumActionResult onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+		IEveHolder holder = playerIn.getCapability(PlasmidsCapabilities.EVE_HOLDER, null);
+		if (holder.getStoredPower() >= 5) {
 
-        IEveHolder holder = playerIn.getCapability(PlasmidsCapabilities.EVE_HOLDER, null);
-        if (holder.getStoredPower() >= 5) {
+			pos = pos.offset(facing);
 
-            pos = pos.offset(facing);
+			if (!playerIn.canPlayerEdit(pos, facing, stack)) {
+				return EnumActionResult.FAIL;
+			}
+			else {
+				if (worldIn.isAirBlock(pos)) {
+					worldIn.playSound(playerIn, pos, SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 1.0F, itemRand.nextFloat() * 0.4F + 0.8F);
+					worldIn.setBlockState(pos, Blocks.FIRE.getDefaultState(), 11);
+					holder.takePower(5, false);
+				}
+			}
 
-            if (!playerIn.canPlayerEdit(pos, facing, stack)) {
-                return EnumActionResult.FAIL;
-            } else {
-                if (worldIn.isAirBlock(pos)) {
-                    worldIn.playSound(playerIn, pos, SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 1.0F, itemRand.nextFloat() * 0.4F + 0.8F);
-                    worldIn.setBlockState(pos, Blocks.FIRE.getDefaultState(), 11);
-                    holder.takePower(5, false);
-                }
-            }
+		}
+		return EnumActionResult.SUCCESS;
+	}
 
-        }
-        return EnumActionResult.SUCCESS;
-    }
-    public boolean hasContainerItem(ItemStack itemStack)
-    {
-        return true;
-    }
-    @Override
-    public ItemStack getContainerItem(ItemStack itemStack)
-    {
-        ItemStack stack = itemStack.copy();
+	public boolean hasContainerItem(ItemStack itemStack) {
+		return true;
+	}
 
-        stack.setItemDamage(stack.getItemDamage() + 1);
-        stack.stackSize = 1;
+	@Override
+	public ItemStack getContainerItem(ItemStack itemStack) {
+		ItemStack stack = itemStack.copy();
 
-        return stack;
-    }
+		stack.setItemDamage(stack.getItemDamage() + 1);
+		stack.stackSize = 1;
 
+		return stack;
+	}
 
 }
-

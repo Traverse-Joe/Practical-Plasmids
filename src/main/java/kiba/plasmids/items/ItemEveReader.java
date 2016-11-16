@@ -13,23 +13,25 @@ import net.minecraft.world.World;
 
 public class ItemEveReader extends BaseItem {
 
-    public ItemEveReader() {
-        super("eve_Reader");
-        this.setMaxStackSize(1);
-    }
+	public ItemEveReader() {
+		super("eve_Reader");
+		this.setMaxStackSize(1);
+	}
 
-    @Override
-    public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
-        IEveHolder holder = playerIn.getCapability(PlasmidsCapabilities.EVE_HOLDER, null);
-        if (holder == null || playerIn == null) { return new ActionResult<ItemStack>(EnumActionResult.FAIL, itemStackIn); }
-        if(!worldIn.isRemote){
-            playerIn.addChatMessage(new TextComponentString(String.format("%s: %d","Capacity",holder.getCapacity())));
-            playerIn.addChatMessage(new TextComponentString(String.format("%s: %d","Stored",holder.getStoredPower())));
+	@Override
+	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
+		IEveHolder holder = playerIn.getCapability(PlasmidsCapabilities.EVE_HOLDER, null);
+		if (holder == null || playerIn == null) {
+			return new ActionResult<ItemStack>(EnumActionResult.FAIL, itemStackIn);
+		}
+		if (!worldIn.isRemote) {
+			playerIn.addChatMessage(new TextComponentString(String.format("%s: %d", "Capacity", holder.getCapacity())));
+			playerIn.addChatMessage(new TextComponentString(String.format("%s: %d", "Stored", holder.getStoredPower())));
 
-        }
-        playerIn.attackEntityFrom(DamageSource.generic, 0.1F);
+		}
+		playerIn.attackEntityFrom(DamageSource.generic, 0.1F);
 
-        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemStackIn);
-    }
+		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemStackIn);
+	}
 
 }
