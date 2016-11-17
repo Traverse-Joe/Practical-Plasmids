@@ -18,6 +18,8 @@ public class ConfigHandler {
 	public static long eveUsagePerSonicBoom;
 	public static long eveMaxLevel;
 
+
+
 	@SubscribeEvent
 	public void onConfigChange(ConfigChangedEvent.OnConfigChangedEvent e) {
 		if (e.getModID().equals(Globals.MODID)) {
@@ -49,6 +51,8 @@ public class ConfigHandler {
 
 		eveMaxLevel = CONFIG.getInt("EveMaxLevel", DEF_CAT, 10000, 1, 1000000, "The MAX amount of EVE a player can have on them");
 		Globals.EVE_MAX_LEVEL = (long) eveMaxLevel;
+
+		Globals.QUANTITY_COUNT = CONFIG.getInt("QuantityCount",DEF_CAT,8,1,64,"The Amount of Items Recieved for the Crafting of Consumbables");
 
 		if (CONFIG.hasChanged()) {
 			CONFIG.save();

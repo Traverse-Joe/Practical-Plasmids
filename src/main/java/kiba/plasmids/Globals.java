@@ -14,4 +14,5 @@ public class Globals {
 	public static long EVE_USAGE_PER_ORION_SUN = 5L;
 	public static long EVE_USAGE_PER_SONIC_BOOM = 10L;
 	public static long EVE_MAX_LEVEL = 10000L;
+	public static int QUANTITY_COUNT = 8;
 }

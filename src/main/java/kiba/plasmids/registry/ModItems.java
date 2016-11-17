@@ -30,6 +30,7 @@ public class ModItems {
 	public static ItemEveLighter itemEveLighter;
 	public static ItemFoodVial itemFoodVial;
 	public static ItemBurntFood itemBurntFood;
+	public static ItemTestNeedle itemTestNeedle;
 
 	public static void init() {
 		//Items
@@ -59,6 +60,7 @@ public class ModItems {
 		itemCigarette = new ItemCigarette();
 		itemFoodVial = new ItemFoodVial();
 		itemBurntFood = new ItemBurntFood();
+		itemTestNeedle = new ItemTestNeedle();
 
 	}
 
@@ -86,6 +88,7 @@ public class ModItems {
 		itemEveLighter.initModel();
 		itemFoodVial.initModel();
 		itemBurntFood.initModel();
+		itemTestNeedle.initModel();
 
 	}
 }
