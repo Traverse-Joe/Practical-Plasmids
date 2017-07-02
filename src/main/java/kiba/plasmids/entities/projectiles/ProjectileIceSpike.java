@@ -38,8 +38,8 @@ public class ProjectileIceSpike extends EntityThrowable {
 		super(worldIn, throwerIn);
 	}
 
-	public static void func_189662_a(DataFixer p_189662_0_) {
-		EntityThrowable.func_189661_a(p_189662_0_, "ice_Spike");
+	public static void registerFixesIceSpike(DataFixer p_189662_0_) {
+		EntityThrowable.registerFixesThrowable(p_189662_0_, "ice_Spike");
 	}
 
 	/**

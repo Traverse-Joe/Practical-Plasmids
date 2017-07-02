@@ -20,8 +20,8 @@ plugins {
     id "net.minecraftforge.gradle.forge" version "2.0.2"
 }
 */
-version = "1.10.2-0.2.1"
-group= "kiba.plasmids" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+version = "1.10.2-0.2.2"
+group= "kiba.epiic.plasmids" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "plasmids"
 
 sourceCompatibility = targetCompatibility = "1.8" // Need this here so eclipse task generates correctly.
@@ -29,18 +29,18 @@ compileJava {
     sourceCompatibility = targetCompatibility = "1.8"
 }
 repositories {
-    maven {
-        name = "ChickenBones Repo"
-        url = "http://chickenbones.net/maven/"
-    }
+   // maven {
+        //name = "ChickenBones Repo"
+        //url = "http://chickenbones.net/maven/"
+    //}
 }
 
 dependencies {
-    compile "codechicken:CodeChickenLib:1.10.2-2.4.3.143:deobf"
+    //compile "codechicken:CodeChickenLib:1.10.2-2.5.9.267:deobf"
 }
 
 minecraft {
-    version = "1.10.2-12.18.2.2122"
+    version = "1.10.2-12.18.3.2316"
     runDir = "run"
     
     // the mappings can be changed at any time, and must be in the following format.
@@ -48,10 +48,9 @@ minecraft {
     // stable_#            stables are built at the discretion of the MCP team.
     // Use non-default mappings at your own risk. they may not allways work.
     // simply re-run your setup task after changing the mappings to update your workspace.
-    mappings = "snapshot_20160518"
+    mappings = "snapshot_20161111"
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
 }
-
 dependencies {
     // you may put jars on which you depend on in ./libs
     // or you may define them like so..

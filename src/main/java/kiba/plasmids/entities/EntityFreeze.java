@@ -28,8 +28,8 @@ public class EntityFreeze extends EntitySnowball {
 		super(worldIn, x, y, z);
 	}
 
-	public static void func_189662_a(DataFixer p_189662_0_) {
-		EntityThrowable.func_189661_a(p_189662_0_, "entity_cyclone");
+	public static void registerFixesFreeze(DataFixer p_189662_0_) {
+		EntityThrowable.registerFixesThrowable(p_189662_0_, "entity_cyclone");
 	}
 
 	/**

@@ -1,6 +1,5 @@
 package kiba.plasmids;
 
-import codechicken.lib.CodeChickenLib;
 import kiba.plasmids.api.IEveHolder;
 import kiba.plasmids.energy.implementation.EveContainer;
 import kiba.plasmids.energy.implementation.EveContainerProvider;
@@ -19,9 +18,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-import static kiba.plasmids.Globals.MODID;
-
-@Mod(modid = Globals.MODID, version = Globals.VERSION, name = Globals.MODNAME, dependencies = "required-after:CodeChickenLib@[" + CodeChickenLib.version + ",)")
+@Mod(modid = Globals.MODID, version = Globals.VERSION, name = Globals.MODNAME)
 public class PracticalPlasmids {
 
 	@SidedProxy(clientSide = Globals.CLIENTPROXY, serverSide = Globals.COMMONPROXY)
