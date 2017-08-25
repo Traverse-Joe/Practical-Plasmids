@@ -22,3 +22,5 @@ eclipse
 run
 libs*
 *.log
+
+gradle/wrapper/gradle-wrapper\.properties

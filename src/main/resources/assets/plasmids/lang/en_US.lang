@@ -1,34 +1,38 @@
+#PARSE_ESCAPES
 #en_US.lang File
 
 #Items
 item.plasmids.syringe.name=Empty Syringe
 item.plasmids.wrench.name=Pipe Wrench
-item.plasmids.creative_eveHypo.name=Creative EVE Hypo
-item.plasmids.eve_Reader.name=EVE Reader
-item.plasmids.eve_Hypo.name=EVE Hypo
+item.plasmids.creative_eve_hypo.name=Creative EVE Hypo
+item.plasmids.eve_reader.name=EVE Reader
+item.plasmids.eve_hypo.name=EVE Hypo
 item.plasmids.pep_bar.name=Pep Bar
 item.plasmids.eve_shard.name=EVE Shard
 item.plasmids.med_kit.name=First Aid Kit
 item.plasmids.beer.name=Beer
-item.plasmids.eve_trashCan.name=Eve Trash Can
-item.plasmids.item_Coffee.name=Coffee
-item.plasmids.item_Cigarette.name=Pack of Smokes
-item.plasmids.eve_Solution.name=Raw EVE
-item.plasmids.eve_Lighter.name=EVE Lighter
-item.plasmids.food_Vial.name=Protein Hypo
-item.plasmids.burnt_Food.name=Charred Protein
+item.plasmids.eve_trash_can.name=Eve Trash Can
+item.plasmids.item_coffee.name=Coffee
+item.plasmids.item_cigarette.name=Pack of Smokes
+item.plasmids.eve_solution.name=Raw EVE
+item.plasmids.eve_lighter.name=EVE Lighter
+item.plasmids.food_vial.name=Protein Hypo
+item.plasmids.burnt_food.name=Charred Protein
 item.plasmids.test_needle.name=Disposable Needle
 
-
-
-
 #Plasmids
-item.plasmids.plasmid_Core.name=ADAM
+item.plasmids.plasmid_core.name=ADAM
 item.plasmids.plasmid_incinerate.name=Incinerate
-item.plasmids.plasmid_cycloneTrap.name=Cyclone Trap
-item.plasmids.plasmid_sonicBoom.name=Sonic Boom
-item.plasmids.plasmid_orionSun.name=Orion Sun
-item.plasmids.plasmid_Freeze.name=Winter Blast
+item.plasmids.plasmid_cyclone_trap.name=Cyclone Trap
+item.plasmids.plasmid_sonic_boom.name=Sonic Boom
+item.plasmids.plasmid_orion_sun.name=Orion Sun
+item.plasmids.plasmid_freeze.name=Winter Blast
 
 #Creative Tab
-itemGroup.plasmids=Practical Plasmids
+itemGroup.plasmids.name=Practical Plasmids
+
+#Messages
+message.plasmids.eve_reader=Capacity: $1%s\nStored: $2%s
+
+#Config
+plasmids.config.title=Practical Plasmids
