@@ -8,7 +8,6 @@ public class CommonProxy {
 
 	public void preInit(FMLPreInitializationEvent event) {
 		ModItems.init();
-		RecipeRegistry.register(event);
 		ConfigHandler.init();
 		MinecraftForge.EVENT_BUS.register(new MobDrops());
 	}
