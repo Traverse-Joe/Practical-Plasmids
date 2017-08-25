@@ -4,6 +4,8 @@ import kiba.plasmids.api.IEveHolder;
 import kiba.plasmids.energy.implementation.EveContainer;
 import kiba.plasmids.energy.implementation.EveContainerProvider;
 import kiba.plasmids.proxy.CommonProxy;
+import kiba.plasmids.registry.ConfigHandler;
+import kiba.plasmids.registry.RecipeRegistry;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
@@ -57,6 +59,7 @@ public class PracticalPlasmids {
 
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
+		RecipeRegistry.init();
 		proxy.init(event);
 
 	}
