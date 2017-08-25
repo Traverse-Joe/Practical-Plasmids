@@ -1,5 +1,6 @@
 package kiba.plasmids.items;
 
+import kiba.plasmids.items.base.BaseItem;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -10,7 +11,7 @@ import net.minecraft.world.World;
 
 public class ItemFoodVial extends BaseItem {
 	public ItemFoodVial() {
-		super("food_Vial");
+		super("food_vial");
 		this.setMaxStackSize(16);
 
 	}
@@ -27,9 +28,9 @@ public class ItemFoodVial extends BaseItem {
 	}
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
+	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand hand) {
 		playerIn.setActiveHand(hand);
-		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemStackIn);
+		return new ActionResult<>(EnumActionResult.SUCCESS, playerIn.getHeldItem(hand));
 	}
 
 	@Override
@@ -37,11 +38,11 @@ public class ItemFoodVial extends BaseItem {
 
 		if (entityLiving instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) entityLiving;
-			player.attackEntityFrom(DamageSource.generic, 0.1F);
+			player.attackEntityFrom(DamageSource.GENERIC, 0.1F);
 			player.getFoodStats().setFoodLevel(20);
 			player.getFoodStats().addStats(20, 5f);
-			worldIn.playSound((EntityPlayer) null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_PLAYER_BURP, SoundCategory.PLAYERS, 0.5F, worldIn.rand.nextFloat() * 0.1F + 0.9F);
-			--stack.stackSize;
+			worldIn.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_PLAYER_BURP, SoundCategory.PLAYERS, worldIn.rand.nextFloat() * 0.6F, worldIn.rand.nextFloat() * 0.1F + 0.9F);
+			stack.shrink(1);
 		}
 
 		return stack;

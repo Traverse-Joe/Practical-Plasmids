@@ -1,15 +1,14 @@
 package kiba.plasmids.plasmids;
 
-import kiba.plasmids.Globals;
 import kiba.plasmids.PlasmidsCapabilities;
 import kiba.plasmids.api.IEveHolder;
 import kiba.plasmids.energy.implementation.EveContainer;
 import kiba.plasmids.energy.implementation.EveContainerProvider;
-import kiba.plasmids.items.ItemBasePlasmid;
+import kiba.plasmids.items.base.ItemBasePlasmid;
+import kiba.plasmids.registry.ConfigHandler;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
-import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
@@ -30,15 +29,14 @@ public class PlasmidIncinerate extends ItemBasePlasmid {
 
 	@Override
 	public boolean itemInteractionForEntity(ItemStack stack, EntityPlayer playerIn, EntityLivingBase target, EnumHand hand) {
-		if (hand == EnumHand.OFF_HAND && playerIn.getItemStackFromSlot(EntityEquipmentSlot.MAINHAND) == null) {
+		if (hand == EnumHand.OFF_HAND && playerIn.getHeldItemMainhand().isEmpty()) {
 			IEveHolder holder = playerIn.getCapability(PlasmidsCapabilities.EVE_HOLDER, null);
-			if (holder.getStoredPower() >= Globals.EVE_USAGE_PER_INCINERATE) {
+			if (holder.getStoredPower() >= ConfigHandler.eveUsagePerIncinerate) {
 				target.setFire(10);
-				target.attackEntityFrom(DamageSource.magic, 10.0F);
-				playerIn.worldObj.playSound((EntityPlayer) null, playerIn.getPosition(), SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.PLAYERS, 5.0F, this.itemRand.nextFloat() * 0.4F + 0.8F);
-				holder.takePower(Globals.EVE_USAGE_PER_INCINERATE, false);
+				target.attackEntityFrom(DamageSource.ON_FIRE, 10.0F);
+				playerIn.world.playSound(null, playerIn.getPosition(), SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.PLAYERS, 2.0F + itemRand.nextFloat() * 3.0F, itemRand.nextFloat() * 0.4F + 0.8F);
+				holder.takePower(ConfigHandler.eveUsagePerIncinerate, false);
 			}
-
 		}
 		return super.itemInteractionForEntity(stack, playerIn, target, hand);
 	}

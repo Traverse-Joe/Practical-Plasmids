@@ -2,6 +2,7 @@ package kiba.plasmids.items;
 
 import kiba.plasmids.PlasmidsCapabilities;
 import kiba.plasmids.api.IEveHolder;
+import kiba.plasmids.items.base.BaseItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
@@ -12,21 +13,20 @@ import net.minecraft.world.World;
 
 public class CreativeItemEve extends BaseItem {
 	public CreativeItemEve() {
-		super("creative_eveHypo");
+		super("creative_eve_hypo");
+		this.setMaxStackSize(1);
 	}
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
+	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
 		if (!worldIn.isRemote) {
 			IEveHolder holder = playerIn.getCapability(PlasmidsCapabilities.EVE_HOLDER, null);
-			while (holder.getStoredPower() < 1000L) {
-				holder.givePower(10000L, false);
-			}
-
-			playerIn.attackEntityFrom(DamageSource.generic, 0.1F);
-			return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemStackIn);
+			holder.givePower(holder.getCapacity() - holder.getStoredPower(), false);
+			playerIn.attackEntityFrom(DamageSource.GENERIC, 0.1F);
+			ItemStack stack = playerIn.getHeldItem(handIn);
+			if(!playerIn.isCreative()) stack.shrink(1);
+			return new ActionResult<>(EnumActionResult.SUCCESS, stack);
 		}
-		return new ActionResult<ItemStack>(EnumActionResult.FAIL, itemStackIn);
+		return new ActionResult<>(EnumActionResult.FAIL, playerIn.getHeldItem(handIn));
 	}
-
 }

@@ -2,6 +2,7 @@ package kiba.plasmids.items;
 
 import kiba.plasmids.PlasmidsCapabilities;
 import kiba.plasmids.api.IEveHolder;
+import kiba.plasmids.items.base.BaseItem;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
@@ -25,9 +26,9 @@ public class ItemBeer extends BaseItem {
 	}
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
-		playerIn.setActiveHand(hand);
-		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemStackIn);
+	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
+		playerIn.setActiveHand(handIn);
+		return new ActionResult<>(EnumActionResult.SUCCESS, playerIn.getHeldItem(handIn));
 	}
 
 	@Override
@@ -43,7 +44,7 @@ public class ItemBeer extends BaseItem {
 			IEveHolder holder = player.getCapability(PlasmidsCapabilities.EVE_HOLDER, null);
 			holder.takePower(10, false);
 			player.addPotionEffect(new PotionEffect(MobEffects.INSTANT_HEALTH, 1, 1, false, false));
-			stack.stackSize--;
+			stack.shrink(1);
 		}
 
 		return stack;

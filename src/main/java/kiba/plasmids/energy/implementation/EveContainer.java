@@ -14,7 +14,6 @@ public class EveContainer implements IEveHolder {
 	private long outputRate;
 
 	public EveContainer() {
-
 		this(5000, 50, 50);
 	}
 

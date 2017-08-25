@@ -2,6 +2,7 @@ package kiba.plasmids.items;
 
 import kiba.plasmids.PlasmidsCapabilities;
 import kiba.plasmids.api.IEveHolder;
+import kiba.plasmids.items.base.BaseItem;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
@@ -14,7 +15,7 @@ import net.minecraft.world.World;
 
 public class ItemCigarette extends BaseItem {
 	public ItemCigarette() {
-		super("item_Cigarette");
+		super("item_cigarette");
 
 		this.setMaxDamage(3);
 		this.setMaxStackSize(1);
@@ -27,10 +28,9 @@ public class ItemCigarette extends BaseItem {
 	}
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
+	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand hand) {
 		playerIn.setActiveHand(hand);
-
-		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemStackIn);
+		return new ActionResult<>(EnumActionResult.SUCCESS, playerIn.getHeldItem(hand));
 	}
 
 	@Override
@@ -40,15 +40,13 @@ public class ItemCigarette extends BaseItem {
 
 	@Override
 	public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving) {
-
 		if (entityLiving instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) entityLiving;
 			IEveHolder holder = player.getCapability(PlasmidsCapabilities.EVE_HOLDER, null);
-			holder.givePower(10, false);
-			player.attackEntityFrom(DamageSource.generic, 2.0F);
-			stack.damageItem(+1, player);
+			holder.givePower(50, false);
+			player.attackEntityFrom(DamageSource.GENERIC, 2.0F);
+			stack.damageItem(1, player);
 		}
-
 		return stack;
 	}
 }
