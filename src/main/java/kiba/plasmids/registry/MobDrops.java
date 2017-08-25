@@ -1,18 +1,18 @@
 package kiba.plasmids.registry;
 
+import kiba.plasmids.Globals;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-import java.util.Random;
-
+@Mod.EventBusSubscriber(modid = Globals.MODID)
 public class MobDrops {
-	Random random = new Random();
 
 	@SubscribeEvent
-	public void playerKilledEntity(LivingDropsEvent event) {
+	public static void playerKilledEntity(LivingDropsEvent event) {
 		if (event.getEntity() instanceof EntityMob) {
-			if (random.nextInt(5) == 0) event.getEntityLiving().dropItem(ModItems.itemEveShard, 1);
+			if (((EntityMob) event.getEntity()).getRNG().nextInt(5) == 0) event.getEntityLiving().dropItem(ModItems.EVE_SHARD, 1);
 		}
 	}
 
