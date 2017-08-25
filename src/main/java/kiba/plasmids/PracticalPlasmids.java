@@ -6,6 +6,7 @@ import kiba.plasmids.energy.implementation.EveContainerProvider;
 import kiba.plasmids.proxy.CommonProxy;
 import kiba.plasmids.registry.ConfigHandler;
 import kiba.plasmids.registry.RecipeRegistry;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.capabilities.CapabilityManager;
@@ -21,6 +22,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @Mod(modid = Globals.MODID, version = Globals.VERSION, name = Globals.MODNAME)
 public class PracticalPlasmids {
+
+	public static final CreativeTabs TAB_PRACTICAL_PLASIMDS = new PracticalPlasmidsCreativeTab();
 
 	@SidedProxy(clientSide = Globals.CLIENTPROXY, serverSide = Globals.COMMONPROXY)
 	public static CommonProxy proxy;
