@@ -18,6 +18,7 @@
  */
 package kiba.plasmids.entities.projectiles;
 
+import kiba.plasmids.util.Utils;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.projectile.EntityThrowable;
@@ -34,12 +35,20 @@ import net.minecraft.world.World;
  */
 public class ProjectileIceSpike extends EntityThrowable {
 
+	public ProjectileIceSpike(World world) {
+		/*
+		 * DO NOT REMVOE THIS CONSTRUCTOR
+		 * vanilla mc requires all entities to have a constructor that takes a net.minecraft.world.World as only parameter.
+		 */
+		super(world);
+	}
+
 	public ProjectileIceSpike(World worldIn, EntityLivingBase throwerIn) {
 		super(worldIn, throwerIn);
 	}
 
 	public static void registerFixesIceSpike(DataFixer p_189662_0_) {
-		EntityThrowable.registerFixesThrowable(p_189662_0_, "ice_Spike");
+		EntityThrowable.registerFixesThrowable(p_189662_0_, "ice_spike");
 	}
 
 	/**
@@ -47,19 +56,14 @@ public class ProjectileIceSpike extends EntityThrowable {
 	 */
 	@Override
 	protected void onImpact(RayTraceResult result) {
+		if(!world.isRemote) return;
 		if (result.entityHit != null) {
 			result.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, getThrower()), 0);
 			if (result.entityHit instanceof EntityMob) {
 				((EntityMob) result.entityHit).addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 260, 30, false, false));
 			}
 		}
-
-		for (int j = 0; j < 8; ++j) {
-			worldObj.spawnParticle(EnumParticleTypes.SMOKE_LARGE, posX, posY, posZ, 0.0D, 0.0D, 0.0D, new int[0]);
-		}
-
-		if (!worldObj.isRemote) {
-			setDead();
-		}
+		Utils.spawnParticles(this, EnumParticleTypes.SMOKE_LARGE, 8, posX, posY, posZ, 0.0D, 0.0D, 0.0D, 0.05D);
+		setDead();
 	}
 }

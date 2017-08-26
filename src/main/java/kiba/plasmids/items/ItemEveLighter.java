@@ -2,6 +2,7 @@ package kiba.plasmids.items;
 
 import kiba.plasmids.PlasmidsCapabilities;
 import kiba.plasmids.api.IEveHolder;
+import kiba.plasmids.items.base.BaseItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
@@ -15,32 +16,32 @@ import net.minecraft.world.World;
 
 public class ItemEveLighter extends BaseItem {
 	public ItemEveLighter() {
-		super("eve_Lighter");
+		super("eve_lighter");
 		this.setMaxDamage(64);
 		this.setMaxStackSize(1);
 		this.setNoRepair();
-
 	}
 
 	@Override
-	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+	public EnumActionResult onItemUse(EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+		if(!worldIn.isRemote) {
+			IEveHolder holder = playerIn.getCapability(PlasmidsCapabilities.EVE_HOLDER, null);
+			if (holder.getStoredPower() >= 5) {
 
-		IEveHolder holder = playerIn.getCapability(PlasmidsCapabilities.EVE_HOLDER, null);
-		if (holder.getStoredPower() >= 5) {
+				pos = pos.offset(facing);
 
-			pos = pos.offset(facing);
-
-			if (!playerIn.canPlayerEdit(pos, facing, stack)) {
-				return EnumActionResult.FAIL;
-			}
-			else {
-				if (worldIn.isAirBlock(pos)) {
-					worldIn.playSound(playerIn, pos, SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 1.0F, itemRand.nextFloat() * 0.4F + 0.8F);
-					worldIn.setBlockState(pos, Blocks.FIRE.getDefaultState(), 11);
-					holder.takePower(5, false);
+				if (!playerIn.canPlayerEdit(pos, facing, playerIn.getHeldItem(hand))) {
+					return EnumActionResult.FAIL;
 				}
-			}
+				else {
+					if (worldIn.isAirBlock(pos)) {
+						worldIn.playSound(playerIn, pos, SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 0.6F + itemRand.nextFloat() * 0.4F, itemRand.nextFloat() * 0.4F + 0.8F);
+						worldIn.setBlockState(pos, Blocks.FIRE.getDefaultState(), 11);
+						holder.takePower(5, false);
+					}
+				}
 
+			}
 		}
 		return EnumActionResult.SUCCESS;
 	}
@@ -52,10 +53,8 @@ public class ItemEveLighter extends BaseItem {
 	@Override
 	public ItemStack getContainerItem(ItemStack itemStack) {
 		ItemStack stack = itemStack.copy();
-
 		stack.setItemDamage(stack.getItemDamage() + 1);
-		stack.stackSize = 1;
-
+		stack.setCount(1);
 		return stack;
 	}
 

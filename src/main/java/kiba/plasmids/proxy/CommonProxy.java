@@ -1,16 +1,13 @@
 package kiba.plasmids.proxy;
 
-import kiba.plasmids.registry.*;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.common.event.*;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class CommonProxy {
 
 	public void preInit(FMLPreInitializationEvent event) {
-		ModItems.init();
-		RecipeRegistry.register(event);
-		ConfigHandler.init();
-		MinecraftForge.EVENT_BUS.register(new MobDrops());
+
 	}
 
 	public void init(FMLInitializationEvent event) {

@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "plasmids:items/food_Vial"
+    "layer0": "plasmids:items/food_vial"
   }
 }

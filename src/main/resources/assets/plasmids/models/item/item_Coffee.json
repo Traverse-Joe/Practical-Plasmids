@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "plasmids:items/item_Coffee"
+    "layer0": "plasmids:items/item_coffee"
   }
 }

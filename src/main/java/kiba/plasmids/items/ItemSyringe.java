@@ -1,5 +1,7 @@
 package kiba.plasmids.items;
 
+import kiba.plasmids.items.base.BaseItem;
+
 public class ItemSyringe extends BaseItem {
 	public ItemSyringe() {
 		super("syringe");

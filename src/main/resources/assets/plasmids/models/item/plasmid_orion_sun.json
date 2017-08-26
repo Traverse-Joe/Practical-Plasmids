@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "plasmids:items/plasmid_orionSun"
+    "layer0": "plasmids:items/plasmid_orion_sun"
   }
 }

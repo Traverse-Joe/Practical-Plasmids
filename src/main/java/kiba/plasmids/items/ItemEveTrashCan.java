@@ -2,6 +2,7 @@ package kiba.plasmids.items;
 
 import kiba.plasmids.PlasmidsCapabilities;
 import kiba.plasmids.api.IEveHolder;
+import kiba.plasmids.items.base.BaseItem;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
@@ -14,7 +15,7 @@ import net.minecraft.world.World;
 
 public class ItemEveTrashCan extends BaseItem {
 	public ItemEveTrashCan() {
-		super("eve_trashCan");
+		super("eve_trash_can");
 	}
 
 	@Override
@@ -24,14 +25,13 @@ public class ItemEveTrashCan extends BaseItem {
 
 	@Override
 	public int getMaxItemUseDuration(ItemStack stack) {
-
 		return 60;
 	}
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
+	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand hand) {
 		playerIn.setActiveHand(hand);
-		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemStackIn);
+		return new ActionResult<>(EnumActionResult.SUCCESS, playerIn.getHeldItem(hand));
 	}
 
 	@Override
@@ -40,11 +40,8 @@ public class ItemEveTrashCan extends BaseItem {
 		if (entityLiving instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) entityLiving;
 			IEveHolder holder = player.getCapability(PlasmidsCapabilities.EVE_HOLDER, null);
-			while (holder.getStoredPower() > 0L) {
-				holder.takePower(10000L, false);
-			}
-
-			player.attackEntityFrom(DamageSource.generic, 0.1F);
+			holder.takePower(holder.getStoredPower(), false);
+			player.attackEntityFrom(DamageSource.GENERIC, 0.1F);
 
 		}
 

@@ -14,6 +14,8 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
  *
  * Used to register an item as a Plasmid
  *
+ * TODO: UpcraftLP: transform into IForgeRegistry
+ *
  */
 public class PlasmidRegistry {
 
@@ -37,10 +39,6 @@ public class PlasmidRegistry {
 		}
 	}
 
-	/**
-	 *
-	 * @return
-	 */
 	public static Map<String, IPlasmid<Item>> getPlasmidList() {
 		return REGISTRY;
 	}

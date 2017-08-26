@@ -33,11 +33,14 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraftforge.client.model.pipeline.LightUtil;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * @author p455w0rd
  *
  */
+@SideOnly(Side.CLIENT)
 public class RenderModel {
 	public static void render(IBakedModel model, ItemStack stack) {
 		render(model, -1, stack);
