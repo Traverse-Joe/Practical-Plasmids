@@ -32,7 +32,7 @@ item.plasmids.plasmid_freeze.name=Winter Blast
 itemGroup.plasmids.name=Practical Plasmids
 
 #Messages
-message.plasmids.eve_reader=Capacity: $1%s\nStored: $2%s
+message.plasmids.eve_reader=EVE Stored:
 
 #Config
 plasmids.config.title=Practical Plasmids
