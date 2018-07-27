@@ -29,7 +29,7 @@ public class PlasmidFreeze extends ItemBasePlasmid {
 		if (hand == EnumHand.OFF_HAND && playerIn.getHeldItemMainhand().isEmpty()) {
 			playerIn.setActiveHand(hand);
 		}
-		return ActionResult.newResult(EnumActionResult.SUCCESS, playerIn.getHeldItemOffhand());
+		return ActionResult.newResult(EnumActionResult.SUCCESS, playerIn.getHeldItem(hand));
 	}
 
 	@Override

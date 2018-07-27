@@ -33,7 +33,7 @@ public class PlasmidIncinerate extends ItemBasePlasmid {
 			IEveHolder holder = playerIn.getCapability(PlasmidsCapabilities.EVE_HOLDER, null);
 			if (holder.getStoredPower() >= ConfigHandler.eveUsagePerIncinerate) {
 				target.setFire(10);
-				target.attackEntityFrom(DamageSource.ON_FIRE, 10.0F);
+				target.attackEntityFrom(DamageSource.ON_FIRE, 2.0F);
 				playerIn.world.playSound(null, playerIn.getPosition(), SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.PLAYERS, 2.0F + itemRand.nextFloat() * 3.0F, itemRand.nextFloat() * 0.4F + 0.8F);
 				holder.takePower(ConfigHandler.eveUsagePerIncinerate, false);
 			}

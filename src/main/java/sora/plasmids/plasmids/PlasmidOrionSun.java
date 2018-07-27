@@ -1,7 +1,10 @@
 package sora.plasmids.plasmids;
 
+import akka.actor.dsl.Creators;
+import net.minecraft.util.ActionResult;
 import sora.plasmids.PlasmidsCapabilities;
 import sora.plasmids.api.IEveHolder;
+import sora.plasmids.entities.EntityCycloneTrap;
 import sora.plasmids.items.base.ItemBasePlasmid;
 import sora.plasmids.registry.ConfigHandler;
 import net.minecraft.entity.player.EntityPlayer;
@@ -29,8 +32,11 @@ public class PlasmidOrionSun extends ItemBasePlasmid {
 					holder.takePower(ConfigHandler.eveUsagePerOrionSun, false);
 				}
 			}
-			return EnumActionResult.SUCCESS;
+			return EnumActionResult.PASS;
 		}
 		return super.onItemUse(player, worldIn, pos, hand, facing, hitX, hitY, hitZ);
 	}
+//TODO Figure out what is making the player lose the item
+
+
 }
